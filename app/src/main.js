@@ -4,23 +4,27 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
-import Home from './components/HelloFromVux'
-
+import routes from './router-map'
 Vue.use(VueRouter)
 
-const routes = [{
-  path: '/',
-  component: Home
-}]
+import {DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin} from 'vux'
+Vue.use(DevicePlugin)
+Vue.use(ToastPlugin)
+Vue.use(AlertPlugin)
+Vue.use(ConfirmPlugin)
+Vue.use(LoadingPlugin)
+Vue.use(WechatPlugin)
+Vue.use(AjaxPlugin)
 
+debugger
 const router = new VueRouter({
-  routes
+    routes
 })
 
 FastClick.attach(document.body)
 
 /* eslint-disable no-new */
 new Vue({
-  router,
-  render: h => h(App)
+    router,
+    render: h => h(App)
 }).$mount('#app')

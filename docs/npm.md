@@ -31,7 +31,7 @@
     1. src 源码
         1. assets 静态资源
         1. components 组件
-        1. filter 过滤器
+        1. filters 过滤器
         1. plugins 插件
         1. services http 封装
         1. styles 样式
@@ -49,7 +49,7 @@
 1. 起步
     1. 新增页面： 在 `components` 目录中新建 `.vue` 文件
     1. 修改 router-map.js
-    1. 使用 `v-link` 或 `$router.go` 跳转
+    1. 使用 [`<router-link to="home">Home</router-link>`](https://router.vuejs.org/zh-cn/api/router-link.html) 或 [`router.push`](https://router.vuejs.org/zh-cn/essentials/navigation.html) 跳转
     
     
 

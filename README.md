@@ -6,7 +6,7 @@
 ## 技术堆栈
 
 1. 前端MVVM框架：
-    1. [Vue](https://github.com/vuejs/vue)
+    1. [Vue](http://cn.vuejs.org)
 1. UI框架：
     1. [Vux@2.x](https://vux.li/) 是基于WeUI和Vue(2.x)开发的移动端UI组件库
 1. Cordova
@@ -23,7 +23,6 @@
     1. [vue-router](https://github.com/vuejs/vue-router)  [2.2.0](http://vuejs.github.io/vue-router)
     1. [vue-resource](https://github.com/pagekit/vue-resource)[1.2.0](https://github.com/pagekit/vue-resource/tree/develop/docs)
     1. [vuex](https://github.com/vuejs/vuex)[ 2.1.x](http://vuex.vuejs.org/zh-cn/)
-    1. [vue-cookie](https://github.com/jackie19/vue-cookie)
     1. [vue-touch](https://github.com/vuejs/vue-touch)
     1. [i18n](https://vux.li/#/zh-CN/vux-loader?id=i18n)
     1. [List of User Contributed Tools](https://github.com/vuejs/awesome-vue#libraries--plugins)

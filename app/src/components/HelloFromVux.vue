@@ -17,6 +17,9 @@
             <cell title="custom Alert" @click.native="showAlert">
                 <slot>{{show}}</slot>
             </cell>
+            <cell title="Counter" @click.native="updateCountStatus">
+                <slot>{{count}}</slot>
+            </cell>
 
         </group>
 
@@ -27,15 +30,19 @@
         </confirm>
         <c-alert title="1122" v-model="show" @on-ok="onOk"></c-alert>
 
+
+
     </div>
 </template>
 
 <script>
+    import {mapState, mapActions} from 'vuex'
     import {Group, Cell, Confirm, Alert} from 'vux'
     import CAlert from './alert.vue'
     export default {
         components: {Confirm, Group, Cell, Alert, CAlert},
         data () {
+
             return {
                 // note: changing this line won't causes changes
                 // with hot-reload because the reloaded component
@@ -47,7 +54,13 @@
                 shownConfirm: false
             }
         },
+        computed: mapState({
+            count: state => state.vux.count
+        }),
         methods: {
+            ...mapActions([
+                'updateCountStatus'
+            ]),
             showVuxAlert(){
                 this.$vux.alert.show({
                     title: 'Vux is Cool',

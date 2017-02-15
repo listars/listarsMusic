@@ -8,10 +8,10 @@
     
     查看设置是否成功
     ` $ npm config list` 
-1. 下载 [vue-starter](http://git.oschina.net/fossfe/vue2-starter) 
+1. 下载 [vue2-starter](http://git.oschina.net/fossfe/vue2-starter) 
 1. 初始化项目
     ``` 
-    $ cd vue-starter
+    $ cd vue2-starter
     $ npm install
     $ npm ren dev
     ```

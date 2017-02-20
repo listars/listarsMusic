@@ -5,7 +5,7 @@
 import Home from './components/HelloFromVux'
 import Hello from './components/Hello.vue'
 
-const routes = [{
+ const routes = [{
     path: '/',
     component: Home
 }, {

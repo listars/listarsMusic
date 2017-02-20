@@ -31,14 +31,15 @@
         <c-alert title="1122" v-model="show" @on-ok="onOk"></c-alert>
 
 
-
     </div>
 </template>
 
 <script>
     import {mapState, mapActions} from 'vuex'
     import {Group, Cell, Confirm, Alert} from 'vux'
+
     import CAlert from './alert.vue'
+    import URLParser from '../tools/URLParser'
     export default {
         components: {Confirm, Group, Cell, Alert, CAlert},
         data () {
@@ -53,6 +54,11 @@
                 show: false,
                 shownConfirm: false
             }
+        },
+        created(){
+            var myParser = new URLParser('http://www.a.com/b/c/?q=123#top')
+debugger
+            console.log(myParser)
         },
         computed: mapState({
             count: state => state.vux.count

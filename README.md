@@ -1,3 +1,8 @@
+## Intro
+##### 本 starter 基于 Vue@2.x 、 Vux@2.x ，借助于Vue 的易用，灵活，高性能的优势，构建统一的前端开发技术架构。通过 starter和教程指引开发者进行项目搭建，通过编程规范约束开发者编写项目业务逻辑，形成规范化的项目构建和项目开发。
+
+
+
 
 ## How to use
 
@@ -5,10 +10,10 @@
 
 ## 技术堆栈
 
-1. 前端MVVM框架：
-    1. [Vue](http://cn.vuejs.org)
-1. UI框架：
+1. [Vue@2](http://cn.vuejs.org)：
+1. Component：
     1. [Vux@2.x](https://vux.li/) 是基于WeUI和Vue(2.x)开发的移动端UI组件库
+    1. [Mint UI](https://github.com/ElemeFE/mint-ui) Mobile UI elements for Vue 2.0
 1. Cordova
    1. [Plugin](http://cordova.apache.org/docs/en/latest/guide/overview/index.html)
    1. [Vue-cordova](https://github.com/kartsims/vue-cordova)
@@ -26,23 +31,31 @@
     1. [vue-touch](https://github.com/vuejs/vue-touch)
     1. [i18n](https://vux.li/#/zh-CN/vux-loader?id=i18n)
     1. [List of User Contributed Tools](https://github.com/vuejs/awesome-vue#libraries--plugins)
-  
+1. 工具类库
+    1. [click me](docs/tools.md)  
 1. Webpack
 1. LESS、SASS
 1. [ES6](http://es6.ruanyifeng.com)
 1. [ESLint](http://eslint.org/docs/user-guide)
 1. 开发工具： 
     1. [vue-devtools](https://chrome.google.com/webstore/detail/nhdogjmejiglipccpnnnanhbledajbpd) Chrome devtools
-    1. [vue-cli](https://github.com/vuejs/vue-cli) 脚手架
-    1. [WebStorm 高亮插件](https://github.com/henjue/vue-for-idea)
-    1. [VS Code 高亮插件](https://marketplace.visualstudio.com/items/liuji-jim.vue)
-    
+    1. [vue-cli](https://github.com/vuejs/vue-cli) 
+    1. [VS Code ](https://marketplace.visualstudio.com/items/liuji-jim.vue) 高亮插件
+    1. [WebStorm ](https://github.com/henjue/vue-for-idea) 高亮插件
+    1. [Dash for IntelliJ IDEA ](https://plugins.jetbrains.com/idea/plugin/7351-dash)
+    1. 代理工具：
+        1. windows: [fildder](http://www.fiddler2.com/fiddler2/) 
+        1. macOS: [Charles](http://www.charlesproxy.com/)
+    1. 离线文档管理：
+        1. windows： [Zeal](https://zealdocs.org/)
+        1. macOS：[Dash](https://kapeli.com/dash)
 
-## 模块编码规范
-
+## 编码规范
+1. [js编程风格](docs/style/js.md)
 
 
 ## 移动端离线文档
 
 1. 安卓 
     1. [ES6 入门](docs/assets/apk/ES6Tutorial.apk)
+

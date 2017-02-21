@@ -1,12 +1,16 @@
 ## Intro
-##### 本 starter 基于 Vue@2.x 、 Vux@2.x ，借助于Vue 的易用，灵活，高性能的优势，构建统一的前端开发技术架构。通过 starter和教程指引开发者进行项目搭建，通过编程规范约束开发者编写项目业务逻辑，形成规范化的项目构建和项目开发。
+##### 本 starter 基于 Vue@2.x 、 Vux@2.x ，借助于Vue 的易用，灵活，高性能的优势，构建统一的前端开发技术架构。通过 starter和教程指引开发者进行项目搭建，通过编程规范约束开发者编写项目业务逻辑，形成规范化的项目构建和开发，产出高质量的产品，方便产品后续交接、维护、和二次开发
+##### 适用范围：web app, wechat app, hybird app
+##### 特点： 
+   1. 使用NPM ，一键生成项目
+   1. 使用webpack ，一键打包构建
+   1. 基于 vue 的单文件组件，项目结构清晰，易于维护
+   1. 文档化：包括使用指南，编程规范
 
-
-
-
+    
 ## How to use
 
-[How to use](docs/npm.md)
+[click me](docs/npm.md)
 
 ## 技术堆栈
 
@@ -51,7 +55,7 @@
         1. macOS：[Dash](https://kapeli.com/dash)
 
 ## 编码规范
-1. [js编程风格](docs/style/js.md)
+1. [js 编程风格](docs/style/js.md)
 
 
 ## 移动端离线文档

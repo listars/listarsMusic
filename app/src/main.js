@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 
 import {DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin} from 'vux'
 
@@ -12,6 +13,7 @@ import routes from './router-map'
 
 Vue.use(Vuex)
 Vue.use(VueRouter)
+Vue.use(VueResource)
 
 Vue.use(DevicePlugin)
 Vue.use(ToastPlugin)
@@ -19,7 +21,7 @@ Vue.use(AlertPlugin)
 Vue.use(ConfirmPlugin)
 Vue.use(LoadingPlugin)
 Vue.use(WechatPlugin)
-Vue.use(AjaxPlugin)
+// Vue.use(AjaxPlugin)
 
 const store = new Vuex.Store({}) // 这里你可能已经有其他 module
 

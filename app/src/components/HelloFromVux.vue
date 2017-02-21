@@ -17,11 +17,13 @@
             <cell title="custom Alert" @click.native="showAlert">
                 <slot>{{show}}</slot>
             </cell>
-            <cell title="Counter" @click.native="updateCountStatus">
+            <cell title="Counter with vux" @click.native="updateCountStatus">
                 <slot>{{count}}</slot>
             </cell>
 
         </group>
+
+        <button @click="goNext"> go</button>
 
         <confirm v-model="shownConfirm" title="confirm deleting the item"
                  @on-cancel="onCancel"
@@ -35,11 +37,15 @@
 </template>
 
 <script>
+
     import {mapState, mapActions} from 'vuex'
     import {Group, Cell, Confirm, Alert} from 'vux'
 
     import CAlert from './alert.vue'
     import URLParser from '../tools/URLParser'
+
+    import {MockService} from '../services'
+
     export default {
         components: {Confirm, Group, Cell, Alert, CAlert},
         data () {
@@ -56,9 +62,16 @@
             }
         },
         created(){
-            var myParser = new URLParser('http://www.a.com/b/c/?q=123#top')
-debugger
-            console.log(myParser)
+
+//            如何使用 tools
+            var myParser = new URLParser('http://www.a.com/b/c/?q=123#topttffffffff')
+
+            console.log('======URLParser ', myParser)
+
+//            如何发送一个 ajax 请求：
+            MockService().get().then(res => {
+                console.log('==========', res)
+            })
         },
         computed: mapState({
             count: state => state.vux.count
@@ -67,6 +80,9 @@ debugger
             ...mapActions([
                 'updateCountStatus'
             ]),
+            goNext(){
+                this.$router.push({ path: 'hello' })
+            },
             showVuxAlert(){
                 this.$vux.alert.show({
                     title: 'Vux is Cool',

@@ -8,7 +8,7 @@
    1. 文档化：包括使用指南，编程规范
 
     
-## How to use
+## 如何使用
 
 [click me](docs/npm.md)
 
@@ -29,14 +29,13 @@
 1. Mock
 1. Vue plugins:
     1. [vue-validator](https://github.com/vuejs/awesome-vue#validation) 
-    1. [vue-router](https://github.com/vuejs/vue-router)  [2.2.0](http://vuejs.github.io/vue-router)
+    1. [vue-router](https://github.com/vuejs/vue-router)  [2.x](https://router.vuejs.org/zh-cn/)
     1. [vue-resource](https://github.com/pagekit/vue-resource)[1.2.0](https://github.com/pagekit/vue-resource/tree/develop/docs)
     1. [vuex](https://github.com/vuejs/vuex)[ 2.1.x](http://vuex.vuejs.org/zh-cn/)
     1. [vue-touch](https://github.com/vuejs/vue-touch)
     1. [i18n](https://vux.li/#/zh-CN/vux-loader?id=i18n)
+1. [更多第三方工具类库/plugin](docs/tools.md) 
     1. [List of User Contributed Tools](https://github.com/vuejs/awesome-vue#libraries--plugins)
-1. 工具类库
-    1. [click me](docs/tools.md)  
 1. Webpack
 1. LESS、SASS
 1. [ES6](http://es6.ruanyifeng.com)

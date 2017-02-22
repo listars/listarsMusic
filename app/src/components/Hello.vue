@@ -40,7 +40,6 @@
 
 <script>
 
-    import {Confirm} from 'vux'
 
     export default {
         name: 'hello',
@@ -50,17 +49,6 @@
             }
         },
         methods: {
-            showConfirm(){
-
-                this.$vux.confirm.show({
-                    // 组件除show外的属性
-                    onCancel () {
-                    },
-                    onConfirm () {
-                    }
-                })
-
-            }
         }
     }
 </script>

@@ -1,14 +1,19 @@
 <template>
     <div>
+
         <div class="vux-demo" @click="showConfirm()">
             <img class="logo" src="../assets/vux_logo.png">
             <h1>{{shownConfirm}} </h1>
         </div>
 
         <group title="cell demo">
+            <!--使用 router-link 跳转 -->
             <router-link to="hello">
-                <cell title="Hello" value="Cool" is-link></cell>
+                <cell title="Go to hello with router link" value="click me" is-link></cell>
             </router-link>
+
+            <!--使用 router.push 跳转 -->
+            <cell title="Go to hello with router push" @click.native="goNext" is-link></cell>
 
             <cell title="Vux Alert" @click.native="showVuxAlert">
                 <slot>{{vshow}}</slot>
@@ -18,20 +23,20 @@
                 <slot>{{show}}</slot>
             </cell>
             <cell title="Counter with vux" @click.native="updateCountStatus">
-                <slot>{{count}}</slot>
+                <slot>{{count | tofixed(3) }}</slot>
             </cell>
 
         </group>
 
-        <button @click="goNext"> go</button>
 
         <confirm v-model="shownConfirm" title="confirm deleting the item"
                  @on-cancel="onCancel"
                  @on-confirm="onConfirm">
             <p style="text-align:center;"> Are you sure? </p>
         </confirm>
-        <c-alert title="1122" v-model="show" @on-ok="onOk"></c-alert>
 
+
+        <c-alert title="1122" v-model="show" @on-ok="onOk"></c-alert>
 
     </div>
 </template>
@@ -43,7 +48,6 @@
 
     import CAlert from './alert.vue'
     import URLParser from '../tools/URLParser'
-
     import {MockService} from '../services'
 
     export default {
@@ -64,13 +68,13 @@
         created(){
 
 //            如何使用 tools
-            var myParser = new URLParser('http://www.a.com/b/c/?q=123#topttffffffff')
+            var myParser = new URLParser('http://www.a.com/b/c/?q=123#top')
 
-            console.log('======URLParser ', myParser)
+            console.log('======URLParser ', myParser.getHost())
 
 //            如何发送一个 ajax 请求：
             MockService().get().then(res => {
-                console.log('==========', res)
+                console.log('========== ajax', res)
             })
         },
         computed: mapState({

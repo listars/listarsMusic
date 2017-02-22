@@ -1,6 +1,6 @@
 ## Tools
 
-###URLParser
+### URLParser
 比较完善的url解析
 ####Usage
 
@@ -14,9 +14,11 @@ let Fragment = myParser.getFragment() // top
 let path = myParser.getPathname() // /b/
 ```
 
-### [Html2canvas](https://github.com/niklasvh/html2canvas)
+###  [Html2canvas](https://github.com/niklasvh/html2canvas)
 将html导出到图片
 
 ###  [Image viewer](https://github.com/fengyuanchen/viewerjs)
 图片预览
  
+### [LazyLoad](https://github.com/hilongjw/vue-lazyload)
+图片懒加载

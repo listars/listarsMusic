@@ -13,7 +13,7 @@
     ``` 
     $ cd vue2-starter
     $ npm install
-    $ npm ren dev
+    $ npm run dev
     ```
 1. 打包
     ```
@@ -48,8 +48,15 @@
     
 1. 起步
     1. 新增页面： 在 `components` 目录中新建 `.vue` 文件
-    1. 修改 router-map.js
-    1. 使用 [`<router-link to="home">Home</router-link>`](https://router.vuejs.org/zh-cn/api/router-link.html) 或 [`router.push`](https://router.vuejs.org/zh-cn/essentials/navigation.html) 跳转
+    1. 在 `router-map.js` 中增加一项， [如何懒加载](https://router.vuejs.org/zh-cn/advanced/lazy-loading.html)
+    1. 使用 [`<router-link to="home">Home</router-link>`](https://router.vuejs.org/zh-cn/api/router-link.html) 或 [`router.push`](https://router.vuejs.org/zh-cn/essentials/navigation.html) 跳转,  在子组件（单文件组件，如：HelloFromVux.vue）中会被注入 router 实例: `$router` ， [路由信息对象](https://router.vuejs.org/zh-cn/api/route-object.html)： `$route`
+1. 进阶
+    1. [组件生命期钩子](http://cn.vuejs.org/v2/api/#选项-生命周期钩子)
+    1. [使用 vuex管理状态](./vuex.md)
+    1. 子组件结构： 参考 src/components/HelloFromVux.vue
+    1. [集成第三方plugin](./tools.md)
+    1. [编写一个plugin](http://cn.vuejs.org/v2/guide/plugins.html)
+    1. [过滤器](./filter.md)
     
     
 

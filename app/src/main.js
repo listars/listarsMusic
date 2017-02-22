@@ -9,6 +9,7 @@ import VueResource from 'vue-resource'
 import {DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin} from 'vux'
 
 import App from './App'
+import Filters from './filters'
 import routes from './router-map'
 
 Vue.use(Vuex)
@@ -22,6 +23,8 @@ Vue.use(ConfirmPlugin)
 Vue.use(LoadingPlugin)
 Vue.use(WechatPlugin)
 // Vue.use(AjaxPlugin)
+
+Vue.use(Filters)
 
 const store = new Vuex.Store({}) // 这里你可能已经有其他 module
 

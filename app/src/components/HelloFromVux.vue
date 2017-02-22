@@ -23,7 +23,7 @@
                 <slot>{{show}}</slot>
             </cell>
             <cell title="Counter with vux" @click.native="updateCountStatus">
-                <slot>{{count | tofixed(3) }}</slot>
+                <slot>{{count | toFixed(3) }}</slot>
             </cell>
 
         </group>

@@ -24,7 +24,7 @@
         },
         created () {
             this.showValue = this.show
-            if (this.value) {
+            if (typeof this.value !== 'undefined') {
                 this.showValue = this.value
             }
         },

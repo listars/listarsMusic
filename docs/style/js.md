@@ -111,15 +111,15 @@
     1. 这样的一些值表示false：null，undefined，字符串''，数字0，NaN
     1. 在==时，则会有一些让人难以理解的陷阱,如：
     ```js
-    var undefined; 
-    undefined == null; // true 
-    1 == true; //true 
-    2 == true; // false 
-    0 == false; // true 
-    0 == ''; // true 
-    NaN == NaN;// false 
-    [] == false; // true 
-    [] == ![]; // true       
+        var undefined; 
+        undefined == null; // true 
+        1 == true; //true 
+        2 == true; // false 
+        0 == false; // true 
+        0 == ''; // true 
+        NaN == NaN;// false 
+        [] == false; // true 
+        [] == ![]; // true       
     ```
 1. 考虑可读性，避免奇怪的写法
     ```js

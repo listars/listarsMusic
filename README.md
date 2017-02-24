@@ -1,23 +1,26 @@
 ## Intro
-##### 本 starter 基于 Vue@2.x 、 Vux@2.x ，借助于Vue 的易用，灵活，高性能的优势，构建统一的前端开发技术架构。通过 starter和教程指引开发者进行项目搭建，通过编程规范约束开发者编写项目业务逻辑，形成规范化的项目构建和开发，产出高质量的产品，方便产品后续交接、维护、和二次开发
+##### 本 starter 基于 Vue@2.x ，借助于Vue 的易用，灵活，高性能的优势，构建统一的前端开发技术架构。通过 starter和教程指引开发者进行项目搭建，通过编程规范约束开发者编写项目业务逻辑，形成规范化的项目构建和开发，产出高质量的产品，方便产品后续交接、维护、和二次开发
 ##### 适用范围：web app, wechat app, hybird app
 ##### 特点： 
+   1. 适应于 pc 端， 移动端
+   1. 兼容 IE9 以上，Chrome, 等主流浏览器
    1. 使用NPM ，一键生成项目
    1. 使用webpack ，一键打包构建
    1. 基于 vue 的单文件组件，项目结构清晰，易于维护
    1. 文档化：包括使用指南，编程规范
 
     
-## 如何使用
-
-[click me](docs/npm.md)
+## [如何按照使用](docs/npm.md)
 
 ## 技术堆栈
 
 1. [Vue@2](http://cn.vuejs.org)：
 1. Component：
-    1. [Vux@2.x](https://vux.li/) 是基于WeUI和Vue(2.x)开发的移动端UI组件库
-    1. [Mint UI](https://github.com/ElemeFE/mint-ui) Mobile UI elements for Vue 2.0
+    1. 移动端
+        1. [Vux@2.x](https://vux.li/) 是基于WeUI和Vue(2.x)开发的移动端UI组件库
+        1. [Mint UI](https://github.com/ElemeFE/mint-ui) Mobile UI elements for Vue 2.0
+    1. pc 端 
+        1. [Element](http://element.eleme.io/#/zh-CN/component/installation) A Vue.js 2.0 UI Toolkit for Web.
 1. Cordova
    1. [Plugin](http://cordova.apache.org/docs/en/latest/guide/overview/index.html)
    1. [Vue-cordova](https://github.com/kartsims/vue-cordova)

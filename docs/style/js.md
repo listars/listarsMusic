@@ -34,6 +34,7 @@
     1. 文件注释
         1. 文件版本、创建或者修改时间、功能、作者等
     1. 声明注释
+    
         ```js
         // todo： 代码未完成，下一步做什么
         // fixme： 代码有问题，需要被修复或进一步完善
@@ -61,7 +62,6 @@
         function hasClass() { }
         function isObject() { }
         function canScroll() { }
-        
         ```
     1. 用大写字母和下划线命名常量，易于检索和阅读
         ```js
@@ -82,6 +82,7 @@
         ;(function (){})()
         ```
      1.  如果不写分号，foo 总会执行
+     
             ```js
             var bar = function() {
                 return -1
@@ -112,6 +113,7 @@
 1. == 与 === ，尽量使用 ===
     1. 这样的一些值表示false：null，undefined，字符串''，数字0，NaN
     1. 在==时，则会有一些让人难以理解的陷阱,如：
+    
         ```js
             var undefined; 
             undefined == null; // true 

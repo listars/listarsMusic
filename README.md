@@ -31,7 +31,8 @@
    1. Crosswalk
 1. Mock
 1. Vue plugins:
-    1. [vue-validator](https://github.com/vuejs/awesome-vue#validation) 
+    1. [vue 表单验证](https://github.com/vuejs/awesome-vue#validation)  
+        1. [vue-validator](https://github.com/kazupon/vue-validator) [使用例子](https://github.com/kazupon/vue-validator/blob/master/examples/)
     1. [vue-router](https://github.com/vuejs/vue-router)  [2.x](https://router.vuejs.org/zh-cn/)
     1. [vue-resource](https://github.com/pagekit/vue-resource)[1.2.0](https://github.com/pagekit/vue-resource/tree/develop/docs)
     1. [vuex](https://github.com/vuejs/vuex)[ 2.1.x](http://vuex.vuejs.org/zh-cn/)

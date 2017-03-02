@@ -6,6 +6,7 @@
             <h1>{{shownConfirm}} </h1>
         </div>
 
+
         <group title="cell demo">
             <!--使用 router-link 跳转 -->
             <router-link to="hello">
@@ -42,7 +43,6 @@
 </template>
 
 <script>
-
     import {mapState, mapActions} from 'vuex'
     import {Group, Cell, Confirm, Alert} from 'vux'
 
@@ -62,7 +62,8 @@
                 msg: 'Hello World!',
                 vshow: false,
                 show: false,
-                shownConfirm: false
+                shownConfirm: false,
+                username: null,
             }
         },
         created(){
@@ -70,22 +71,24 @@
 //            如何使用 tools
             var myParser = new URLParser('http://www.a.com/b/c/?q=123#top')
 
-            console.log('======URLParser ', myParser.getHost())
+            console.log('======URLParser ', myParser)
 
 //            如何发送一个 ajax 请求：
             MockService().get().then(res => {
                 console.log('========== ajax', res)
             })
         },
-        computed: mapState({
-            count: state => state.vux.count
-        }),
+        computed: {
+            ...mapState({
+                count: state => state.vux.count
+            })
+        },
         methods: {
             ...mapActions([
                 'updateCountStatus'
             ]),
             goNext(){
-                this.$router.push({ path: 'hello' })
+                this.$router.push({path: 'hello'})
             },
             showVuxAlert(){
                 this.$vux.alert.show({
@@ -137,7 +140,7 @@
         }
     }
 </script>
-<style>
+<style lang="less" rel="stylesheet/less" scoped>
     .vux-demo {
         text-align: center;
     }

@@ -6,6 +6,7 @@ import Vuex from 'vuex'
 import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import VueValidator from 'vue-validator'
 
 import {DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin} from 'vux'
 
@@ -14,9 +15,9 @@ import Filters from './filters'
 import routes from './router-map'
 
 Vue.use(Vuex)
+Vue.use(VueValidator)
 Vue.use(VueRouter)
 Vue.use(VueResource)
-
 Vue.use(DevicePlugin)
 Vue.use(ToastPlugin)
 Vue.use(AlertPlugin)

@@ -7,7 +7,7 @@
 <script>
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="less" rel="stylesheet/less" >
     @import '~vux/src/styles/reset.less';
     body {
         background-color: #fbf9fe;

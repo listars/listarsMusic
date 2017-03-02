@@ -16,8 +16,7 @@
  * URLParser is freely distributable under the terms of an MIT-style license.
  */
 
-if (typeof Poly9 == 'undefined')
-{
+if (typeof Poly9 == 'undefined') {
     var Poly9 = {};
 }
 
@@ -30,19 +29,19 @@ if (typeof Poly9 == 'undefined')
  * @constructor
  * @exception {String}  Throws an exception if the specified url is invalid
  */
-Poly9.URLParser = function(url) {
+Poly9.URLParser = function (url) {
     var _this = this;
 
     this._fields = {
-        'Username' : 4,
-        'Password' : 5,
-        'Port' : 7,
-        'Protocol' : 2,
-        'Host' : 6,
-        'Pathname' : 8,
-        'URL' : 0,
-        'Querystring' : 9,
-        'Fragment' : 10
+        'Username': 4,
+        'Password': 5,
+        'Port': 7,
+        'Protocol': 2,
+        'Host': 6,
+        'Pathname': 8,
+        'URL': 0,
+        'Querystring': 9,
+        'Fragment': 10
     };
 
     this._values = {};
@@ -52,21 +51,20 @@ Poly9.URLParser = function(url) {
     this._paramValues = {};
     var paramParsed = false;
 
-    for(var f in this._fields)
-    {
+    for (var f in this._fields) {
         this['get' + f] = this._makeGetter(f);
     }
 
-    if (typeof url != 'undefined')
-    {
+    if (typeof url != 'undefined') {
         this._parse(url);
     }
 
-
     var parseQueryString = function (hash) {
-        if(paramParsed) return _this._paramValues;
-        if(hash==null || hash.length<=0) return null;
+        if (paramParsed) return _this._paramValues;
+        if (hash == null || hash.length <= 0) return null;
         var items = hash.split("&"), i, item;
+        var i, j;
+
         for (i = 0, j = items.length; i < j; i++) {
             item = items[i].split("=");
             if (item.length === 2 && item[0].length > 0) {
@@ -77,9 +75,9 @@ Poly9.URLParser = function(url) {
         return _this._paramValues;
     };
 
-    this.getQuery = function(key){
+    this.getQuery = function (key) {
         var param = parseQueryString(_this.getQuerystring());
-        if(param == null) return null;
+        if (param == null) return null;
         return param[key];
     }
 }
@@ -89,30 +87,28 @@ Poly9.URLParser = function(url) {
  * @param {String} url    The url to parse
  * @exception {String}     Throws an exception if the specified url is invalid
  */
-Poly9.URLParser.prototype.setURL = function(url) {
+Poly9.URLParser.prototype.setURL = function (url) {
     this._parse(url);
 }
 
-Poly9.URLParser.prototype._initValues = function() {
-    for(var f in this._fields)
-    {
+Poly9.URLParser.prototype._initValues = function () {
+    for (var f in this._fields) {
         this._values[f] = '';
     }
 }
 
-Poly9.URLParser.prototype._parse = function(url) {
+Poly9.URLParser.prototype._parse = function (url) {
     this._initValues();
     var r = this._regex.exec(url);
     if (!r) throw "DPURLParser::_parse -> Invalid URL";
 
-    for(var f in this._fields) if (typeof r[this._fields[f]] != 'undefined')
-    {
+    for (var f in this._fields) if (typeof r[this._fields[f]] != 'undefined') {
         this._values[f] = r[this._fields[f]];
     }
 }
 
-Poly9.URLParser.prototype._makeGetter = function(field) {
-    return function() {
+Poly9.URLParser.prototype._makeGetter = function (field) {
+    return function () {
         return this._values[field];
     }
 }

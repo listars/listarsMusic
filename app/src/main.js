@@ -8,7 +8,7 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import VueValidator from 'vue-validator'
 
-import {DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin, AjaxPlugin} from 'vux'
+import {DevicePlugin, ToastPlugin, AlertPlugin, ConfirmPlugin, LoadingPlugin, WechatPlugin} from 'vux'
 
 import App from './App'
 import Filters from './filters'
@@ -24,7 +24,7 @@ Vue.use(AlertPlugin)
 Vue.use(ConfirmPlugin)
 Vue.use(LoadingPlugin)
 Vue.use(WechatPlugin)
-// Vue.use(AjaxPlugin)
+
 
 Vue.use(Filters)
 

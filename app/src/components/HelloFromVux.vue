@@ -55,7 +55,6 @@
         data () {
 
             return {
-
                 msg: 'Hello World!',
                 vshow: false,
                 show: false,

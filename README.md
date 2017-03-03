@@ -42,7 +42,7 @@
 1. [更多第三方工具类库/plugin](docs/tools.md) 
     1. [List of User Contributed Tools](https://github.com/vuejs/awesome-vue#libraries--plugins)
 1. Webpack
-1. LESS、SASS
+1. [LESS](http://lesscss.cn/)、SASS
 1. [ES6](http://es6.ruanyifeng.com)
 1. [ESLint](http://eslint.org/docs/user-guide)
 1. 开发工具： 
@@ -61,6 +61,10 @@
 ## 编码规范
 1. [js 编程风格](docs/style/js.md)
 
+## RESTful 
+ 理解什么是RESTful, 便于写出合乎规范的代码
+1. [RESTful API 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
+1. [理解RESTful架构](http://www.ruanyifeng.com/blog/2011/09/restful)
 
 ## 移动端离线文档
 

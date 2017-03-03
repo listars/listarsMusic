@@ -4,7 +4,7 @@
 1. 包含：代码风格，编程实践
 
 ###一般规范
-1. 文件名：使用点和减号来分隔文件名 ,`router-map.js`
+1. 文件名：所以用小写字母，使用点和减号来分隔文件名 ,`router-map.js`
 1. 缩进：4空格
 1. 注释：注释有助于理解代码，当代码中有：复杂逻辑， 修复特殊的bug， 浏览器hack，晦涩难懂的代码时需要注释。
     1. 函数、方法注释
@@ -103,7 +103,7 @@
            }
         }
         ```      
-1. 引号：字符串定义使用单引号， `const name='Maldini'` 
+1. 引号：字符串定义使用单引号， `const name='Maldini'`  `var tpl='<div class="header"></div>'`
 1. 空行：适当使用空行分割代码，增加可读性，规则：保持语义相关的代码在一起展现
     1. 方法之间
     1. 流程控制之前，如 `if` 和 `for`
@@ -207,6 +207,18 @@
     // 重写方法
     document.getElementById = function(args) { }
     ```
-
+1. 不要在块内声明函数
+    ```js
+    // bad
+    if(test){
+       function foo(){}
+    }
+    // good 
+    function foo() { }   
+    if(test){
+        foo()
+    }
+    ```
+1.         
    
    

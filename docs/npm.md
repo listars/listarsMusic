@@ -56,7 +56,7 @@
     1. [使用 vuex管理状态](./vuex.md)
     1. [编写一个plugin](http://cn.vuejs.org/v2/guide/plugins.html)
     1. [过滤器](./filter.md)
-    1. [表单验证](./filter.md)
+    1. [表单验证](./validator.md)
     
     
     

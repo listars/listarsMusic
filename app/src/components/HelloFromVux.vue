@@ -55,10 +55,7 @@
         data () {
 
             return {
-                // note: changing this line won't causes changes
-                // with hot-reload because the reloaded component
-                // preserves its current state and we are modifying
-                // its initial state.
+
                 msg: 'Hello World!',
                 vshow: false,
                 show: false,
@@ -71,7 +68,7 @@
 //            如何使用 tools
             var myParser = new URLParser('http://www.a.com/b/c/?q=123#top')
 
-            console.log('======URLParser ', myParser)
+            console.log('======URLParser=== q is :', myParser.getQuery('q'))
 
 //            如何发送一个 ajax 请求：
             MockService().get().then(res => {

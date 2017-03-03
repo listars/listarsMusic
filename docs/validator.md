@@ -8,4 +8,4 @@
      Vue.use(VueValidator)
     ```
 
-1. [更多例子查看](https://github.com/kazupon/vue-validator/blob/master/examples)
+1. [查看使用示例](https://github.com/kazupon/vue-validator/blob/master/examples)

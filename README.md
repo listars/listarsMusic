@@ -26,7 +26,7 @@
    1. [Plugin](http://cordova.apache.org/docs/en/latest/guide/overview/index.html)
    1. [Vue-cordova](https://github.com/kartsims/vue-cordova)
    1. Sqlite
-   1. [Hot code push](https://github.com/nordnet/cordova-hot-code-push)
+   1. [Hot code push](https://github.com/nordnet/cordova-hot-code-push) 代码热更新
    1. PUSH：极光推送（个推、小米）
    1. [友盟统计](http://www.umeng.com/) [Plugin](https://github.com/search?utf8=%E2%9C%93&q=umeng+cordova&type=Repositories&ref=searchresults)
    1. Crosswalk
@@ -34,14 +34,14 @@
 1. Vue plugins:
     1. [vue 表单验证](https://github.com/vuejs/awesome-vue#validation)  
         1. [vue-validator](https://github.com/kazupon/vue-validator) [使用例子](https://github.com/kazupon/vue-validator/blob/master/examples/)
-    1. [vue-router](https://github.com/vuejs/vue-router)  [2.x](https://router.vuejs.org/zh-cn/)
+    1. [vue-router](https://github.com/vuejs/vue-router)  [2.x](https://router.vuejs.org/zh-cn/) 路由
     1. [vue-resource](https://github.com/pagekit/vue-resource)[1.2.0](https://github.com/pagekit/vue-resource/tree/develop/docs)
-    1. [vuex](https://github.com/vuejs/vuex)[ 2.1.x](http://vuex.vuejs.org/zh-cn/)
-    1. [vue-touch](https://github.com/vuejs/vue-touch)
+    1. [vuex](https://github.com/vuejs/vuex)[ 2.1.x](http://vuex.vuejs.org/zh-cn/) 状态管理
+    1. [vue-touch](https://github.com/vuejs/vue-touch/tree/next) Touch events plugin
     1. [i18n](https://vux.li/#/zh-CN/vux-loader?id=i18n)
 1. [更多第三方工具类库/plugin](docs/tools.md) 
     1. [List of User Contributed Tools](https://github.com/vuejs/awesome-vue#libraries--plugins)
-1. Webpack
+1. [Webpack](http://webpackdoc.com/) 前端资源模块化管理和打包工具
 1. [LESS](http://lesscss.cn/)、SASS
 1. [ES6](http://es6.ruanyifeng.com)
 1. [ESLint](http://eslint.org/docs/user-guide)

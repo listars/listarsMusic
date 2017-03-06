@@ -1,7 +1,7 @@
 ##使用 filter 过滤器
 
 1. 在 `src/filters` 目录中新建目录 `toFixed`
-1. 在 `src/filters/toFixed/index.js` 中增加， 
+1. 在 `src/filters/toFixed/index.js` 中增加过滤方法， 
     ```js
     export default {
         toFixed(value, digits = 2){

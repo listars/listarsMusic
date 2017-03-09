@@ -21,7 +21,7 @@
     1. 单行注释： 变量注释
     
     ```js
-    const MaxWidth = 320 // 最大宽度
+    const MaxWidth = 320 // 图片的最大宽度
     ```
     1. 多行注释，
 
@@ -72,7 +72,7 @@
         }
         
         // good 
-        const MINUTES_IN_A_YEAR = 525600;
+        const MINUTES_IN_A_YEAR = 525600
         // ...
         ```    
 1. 分号：可以不使用分号，但要注意个别情况:
@@ -103,7 +103,11 @@
            }
         }
         ```      
-1. 引号：字符串定义使用单引号， `const name='Maldini'`  `var tpl='<div class="header"></div>'`
+1. 引号：字符串定义使用单引号
+    ```js
+    const name='Maldini'
+    var tpl='<div class="header"></div>'
+    ```
 1. 空行：适当使用空行分割代码，增加可读性，规则：保持语义相关的代码在一起展现
     1. 方法之间
     1. 流程控制之前，如 `if` 和 `for`
@@ -115,15 +119,15 @@
     1. 在==时，则会有一些让人难以理解的陷阱,如：
     
         ```js
-            var undefined; 
-            undefined == null; // true 
-            1 == true; //true 
-            2 == true; // false 
-            0 == false; // true 
-            0 == ''; // true 
-            NaN == NaN;// false 
-            [] == false; // true 
-            [] == ![]; // true       
+            var undefined 
+            undefined == null // true 
+            1 == true //true 
+            2 == true // false 
+            0 == false // true 
+            0 == '' // true 
+            NaN == NaN// false 
+            [] == false // true 
+            [] == ![] // true       
         ```
 1. 考虑可读性，避免奇怪的写法
     ```js
@@ -134,9 +138,9 @@
     ```    
     ```js
     // bad
-    var a = 2.;
+    var a = 2.
     // good
-    var a = 2;
+    var a = 2
     ```
 1. 花括号： 总是使用花括号， `if`, `for`, `while`, `do while`, `try catch` 
     ```js
@@ -173,14 +177,23 @@
         [] instanceof Object // true
      
        // 使用 Array.isArray 判断是否为数组
-       Array.isArray([1, 2, 3]);  // true
-       Array.isArray({foo: 123}); // false
+       Array.isArray([1, 2, 3])  // true
+       Array.isArray({foo: 123}) // false
     ```
     1. 避免空比较
     ```js
     // bad
+    if(value != undefined){
+       // ...
+    }
+ 
     if(value != null){
        // ...
+    }
+ 
+    // good
+    if(value){
+       doSomething()
     }
     ```
 1. 分离配置数据

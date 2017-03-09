@@ -62,7 +62,7 @@
 1. [js 编程风格](docs/style/js.md)
 
 ## RESTful 
- 理解什么是RESTful, 便于写出合乎规范的代码
+ 理解RESTful, 便于写出更优雅的代码
 1. [RESTful API 设计指南](http://www.ruanyifeng.com/blog/2014/05/restful_api.html)
 1. [理解RESTful架构](http://www.ruanyifeng.com/blog/2011/09/restful)
 

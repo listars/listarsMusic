@@ -11,7 +11,7 @@
 1. 下载 [vue2-starter](http://git.oschina.net/fossfe/vue2-starter) 
 1. 初始化项目
     ``` 
-    $ cd vue2-starter
+    $ cd vue2-starter/app
     $ npm install
     $ npm run dev
     ```

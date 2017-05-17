@@ -63,8 +63,17 @@
             }
             span.active{
                 color: red;
-                box-sizing: border-box;
-                border-bottom: 2px solid red;
+                position: relative;
+            }
+            span.active:after{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: .1rem;
+                bottom: 0;
+                display: block;
+                background: red;
+                left: 0;
             }
         }
         .home-con{

@@ -238,7 +238,7 @@
                         .num{
                             position: absolute;
                             top: .5rem;
-                            left: .55rem;
+                            left: .5rem;
                             color: red;
                             width: .9rem;
                             height: auto;
@@ -293,16 +293,16 @@
                     display: inline-block;
                     vertical-align: top;
                     border-left: .2rem solid red;
-                    font-size: .85rem;
-                    height: .9rem;
-                    line-height: .9rem;
-                    text-indent: .5rem;
+                    font-size: .75rem;
+                    height: .8rem;
+                    line-height: .8rem;
+                    text-indent: .4rem;
                 }
                 span{
                     display: inline-block;
                     vertical-align: top;
-                    width: .9rem;
-                    height: .9rem;
+                    width: .8rem;
+                    height: .8rem;
                     margin-left: .2rem;
                     background: url("../../assets/icon-arrow.png") no-repeat;
                     background-size: 100% 100%;

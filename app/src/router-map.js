@@ -4,9 +4,11 @@
 
 import Home from './components/index.vue'
 
- const routes = [{
-    path: '/',
-    component: Home
-}]
+ const routes = [
+    {
+        path: '/',
+        component: Home
+    }
+]
 
 export default routes

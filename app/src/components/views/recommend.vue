@@ -117,7 +117,7 @@
     import {Swiper, SwiperItem} from 'vux'
     export default{
         components:{
-            Swiper, SwiperItem
+            Swiper,SwiperItem
         },
         data(){
             return{

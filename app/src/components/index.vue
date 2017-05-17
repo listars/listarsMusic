@@ -10,7 +10,7 @@
             <section v-if="navNum==0">
                 <recommend></recommend>
             </section>
-            <section v-if="navNum==1">2</section>
+            <section v-if="navNum==1">666</section>
             <section v-if="navNum==2">3</section>
             <section v-if="navNum==3">4</section>
         </article>
@@ -22,7 +22,7 @@
     import Recommend from './views/recommend.vue'
     export default {
         components:{
-            MHead, Recommend
+            MHead,Recommend
         },
         data(){
             return{

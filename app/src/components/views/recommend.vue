@@ -110,6 +110,11 @@
                 </ul>
             </section>
         </article>
+        <!--自我介绍-->
+        <footer class="recom-foot">
+            <p>点击了解我的更多信息</p>
+            <div>Listars</div>
+        </footer>
     </div>
 </template>
 
@@ -233,7 +238,7 @@
                         .num{
                             position: absolute;
                             top: .5rem;
-                            left: .5rem;
+                            left: .55rem;
                             color: red;
                             width: .9rem;
                             height: auto;
@@ -250,6 +255,31 @@
                         margin-top: .1rem;
                     }
                 }
+            }
+        }
+        .recom-foot{
+            width: 100%;
+            height: 4.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-top: .1rem solid rgb(230,230,230);
+            p{
+                font-size: .75rem;
+                margin-top: -.5rem;
+                margin-bottom: .25rem;
+                color: #999999;
+            }
+            div{
+                width: 5rem;
+                height: 1.5rem;
+                line-height: 1.3rem;
+                text-align: center;
+                font-size: .8rem;
+                border-radius: 1rem;
+                border: .1rem solid red;
+                color: #666666;
             }
         }
         .recom-music{
@@ -380,6 +410,7 @@
                             content: '';
                             position: absolute;
                             left: -1rem;
+                            top: .05rem;
                             width: .85rem;
                             height: .85rem;
                             background: url("../../assets/icon-headset.png") no-repeat;
@@ -401,14 +432,14 @@
                             width: 62%;
                             padding: .5rem;
                             .text1{
-                                font-size: .8rem;
+                                font-size: .75rem;
                                 span{
                                     display: inline-block;
                                     vertical-align: top;
                                     font-size: .6rem;
                                     width: 2.2rem;
                                     height: 1.1rem;
-                                    line-height: 1.1rem;
+                                    line-height: .9rem;
                                     text-align: center;
                                     color: red;
                                     border: 1px solid red;

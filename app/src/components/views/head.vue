@@ -33,32 +33,32 @@
             }
             .list{
                 background: url("../../assets/icon-list.png") no-repeat;
-                background-size: 1.3rem 1.3rem;
+                background-size: 1rem 1rem;
                 background-position: .5rem;
-                margin-right: -.5rem;
+                margin-right: -.7rem;
                 margin-left: .5rem;
             }
             .music{
                 background: url("../../assets/icon-music.png") no-repeat;
-                background-size: 1.3rem 1.3rem;
-                background-position: .5rem;
+                background-size: 1rem 1rem;
+                background-position: .6rem;
                 margin-right: -2rem;
             }
             .user{
                 background: url("../../assets/icon-user.png") no-repeat;
-                background-size: 1.5rem 1.5rem;
-                background-position: .5rem;
+                background-size: 1.2rem 1.2rem;
+                background-position: .6rem;
                 margin-left: -2rem;
             }
             .logo{
                 background: url("../../assets/icon-logo.png") no-repeat;
-                background-size: 1.7rem 1.7rem;
-                background-position: .4rem .4rem;
+                background-size: 1.4rem 1.4rem;
+                background-position: .5rem .5rem;
             }
             .search{
                 background: url("../../assets/icon-search.png") no-repeat;
-                background-size: 1.7rem 1.7rem;
-                background-position: .5rem .4rem;
+                background-size: 1.4rem 1.4rem;
+                background-position: .5rem .5rem;
                 margin-right: .5rem;
             }
         }

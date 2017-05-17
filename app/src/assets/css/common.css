@@ -139,6 +139,9 @@ html {
 				width: 100%;
 				-webkit-overflow-scrolling: touch;
 }
+body{
+				background: rgb(235,235,235);
+}
 .routerContent {
 				position: absolute;
 				top: 0;

@@ -2,24 +2,24 @@
     <article class="page-sheet">
         <section class="sheet-head">
             <div class="head-top">
-                <span class="icon">&#xe602;</span>
+                <a href="javascript:history.go(-1)" class="icon">&#xe602;</a>
                 <span class="top-text">歌单</span>
                 <span class="icon">&#xe672;</span>
                 <span class="icon">&#xe60f;</span>
             </div>
             <div class="head-con">
-                <img src="../../assets/song-sheet.png" alt=""/>
+                <img :src="datas.picUrl" alt=""/>
                 <div class="con-user">
-                    <p class="sheet-name">我的歌单</p>
+                    <p class="sheet-name">{{datas.name}}</p>
                     <div class="sheet-user">
-                        <img src="../../assets/song-sheet1.png" alt=""/><span>不自主的冲动 ></span>
+                        <img :src="creator.avatarUrl" alt=""/><span>{{creator.nickname}} ></span>
                     </div>
                 </div>
             </div>
             <ul class="head-nav">
-                <li><span class="nav-icon">&#xe696;</span><p>收藏</p></li>
-                <li><span class="nav-icon">&#xe669;</span><p>评论</p></li>
-                <li><span class="nav-icon">&#xe64e;</span><p>分享</p></li>
+                <li><span class="nav-icon">&#xe696;</span><p>{{datas.playCount}}</p></li>
+                <li><span class="nav-icon">&#xe669;</span><p>{{datas.commentCount}}</p></li>
+                <li><span class="nav-icon">&#xe64e;</span><p>{{datas.shareCount}}</p></li>
                 <li><span class="nav-icon">&#xe61e;</span><p>下载</p></li>
             </ul>
         </section>
@@ -33,8 +33,8 @@
                 <li v-for="(item,index) in songList">
                     <span class="con-id">{{index+1}}</span>
                     <div class="con-song">
-                        <p class="song-name">{{item.song}}</p>
-                        <p class="singer">{{item.singer}} - {{item.album}}</p>
+                        <p class="song-name">{{item.name}}</p>
+                        <p class="singer">{{item.al.name}}</p>
                         <span class="list2">&#xe60f;</span>
                     </div>
                 </li>
@@ -44,34 +44,45 @@
 </template>
 
 <script>
+    import api from '../../api';
     export default{
         components:{
         },
         data(){
             return{
-                songList:[
-                    { song: 'Cry for you', singer: '岚', album: 'Time' },
-                    { song: '光年之外', singer: 'G.E.M.邓紫棋', album: '光年之外' },
-                    { song: 'Supernova', singer: 'V6', album: 'Supernova' },
-                    { song: '走狗', singer: '周柏豪', album: '传闻' },
-                    { song: 'Everything', singer: '岚', album: 'Everything' },
-                    { song: '5x10', singer: '岚', album: 'Arashi 10con' }
-                ]
+                datas: {},
+                creator:{},
+                songList:[]
             }
+        },
+        methods:{
+            getListDetail(){
+                api.getPlaylistDetailResource(this.$route.params.id).then(res => {
+                    this.datas = res.data.playlist;
+                    this.creator = res.data.playlist.creator;
+                    this.songList = res.data.playlist.tracks;
+                }).catch(res => {
+                    console.log(res);
+                })
+            },
+            playListImage() {
+                return '' || (this.datas.picUrl);
+            },
+            creatorImage() {
+                return '' || this.creator.avatarUrl;
+            }
+        },
+        mounted(){
+            this.getListDetail();
         }
     }
 </script>
 
 <style lang="less" rel="stylesheet/less">
+    @import '../../assets/css/common.css';
     .page-sheet{
-        @font-face {
-            font-family: 'iconfont';  /* project id 304764 */
-            src: url('//at.alicdn.com/t/font_y5378ju8a0d7k3xr.eot');
-            src: url('//at.alicdn.com/t/font_y5378ju8a0d7k3xr.eot?#iefix') format('embedded-opentype'),
-            url('//at.alicdn.com/t/font_y5378ju8a0d7k3xr.woff') format('woff'),
-            url('//at.alicdn.com/t/font_y5378ju8a0d7k3xr.ttf') format('truetype'),
-            url('//at.alicdn.com/t/font_y5378ju8a0d7k3xr.svg#iconfont') format('svg');
-        }
+
+        background: rgb(248,248,248);
         .sheet-head{
             width: 100%;
             height: auto;
@@ -116,8 +127,9 @@
                 .con-user{
                     display: inline-block;
                     vertical-align: top;
+                    width: 58%;
                     .sheet-name{
-                        font-size: .8rem;
+                        font-size: .75rem;
                         color: #ffffff;
                         margin-bottom: .5rem;
                     }
@@ -236,7 +248,7 @@
                         height: 2.5rem;
                         width: 88%;
                         position: relative;
-                        border-bottom: 1px solid rgb(240,240,240);
+                        border-bottom: 1px solid rgb(230,230,230);
                         font-size: .75rem;
                         .song-name{
                             font-size: .65rem;
@@ -266,6 +278,11 @@
                             color: #888888;
                             width: 12%;
                         }
+                    }
+                }
+                li:last-child{
+                    .con-song{
+                        border-bottom: 0;
                     }
                 }
             }

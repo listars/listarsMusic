@@ -4,6 +4,7 @@
 
 import Home from './components/index.vue'
 import Sheet from './components/views/songSheet.vue'
+import Song from './components/views/song.vue'
 
  const routes = [
     {
@@ -11,8 +12,12 @@ import Sheet from './components/views/songSheet.vue'
         component: Home
     },
     {
-        path: '/songSheet',
+        path: '/playLists/:id',
         component: Sheet
+    },
+    {
+        path: '/song',
+        component: Song
     }
 
 ]

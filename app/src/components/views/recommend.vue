@@ -1,11 +1,11 @@
+<script src="../../../../../../api/NeteaseCloudMusicApi/app.js"></script>
 <template>
     <div class="page-recommend">
         <!--轮播-->
         <swiper class="home-recom">
-            <swiper-item class="black"><h2 class="title fadeInUp animated">它无孔不入</h2></swiper-item>
-            <swiper-item class="black"><h2 class="title fadeInUp animated">你无处可藏</h2></swiper-item>
-            <swiper-item class="black"><h2 class="title fadeInUp animated">不是它可恶</h2></swiper-item>
-            <swiper-item class="black"><h2 class="title fadeInUp animated">而是它不懂你</h2></swiper-item>
+            <swiper-item class="black" v-for="(data,index) in topBanner">
+                <img width="100%" :src="data.pic"/>
+            </swiper-item>
         </swiper>
         <!--导航-->
         <article class="recom-nav">
@@ -31,10 +31,10 @@
             <header class="music-head"><p>推荐歌单</p><span></span></header>
             <section class="music-con">
                 <ul>
-                    <li v-for="(item,index) in songSheet">
-                        <span>{{item.num}}</span>
-                        <img :src="item.img" alt=""/>
-                        <p>{{item.text}}</p>
+                    <li v-for="(data,index) in playlists">
+                        <span>{{data.playCount}}</span>
+                        <img @click="linkPlayList(data.id)" :src="data.picUrl"/>
+                        <p>{{data.name}}</p>
                     </li>
                 </ul>
             </section>
@@ -44,43 +44,43 @@
             <header class="music-head"><p>独家放送</p><span></span></header>
             <section class="music-sole">
                 <ul>
-                    <li v-for="(item,index) in soleList">
-                        <img :src="item.img" alt=""/>
-                        <p>{{item.text}}</p>
+                    <li v-for="(data,index) in soleList">
+                        <img :src="data.picUrl + '?param=400y200'" alt=""/>
+                        <p>{{data.name}}</p>
                     </li>
                 </ul>
             </section>
         </article>
         <!--最新音乐-->
-        <article class="recom-music">
+        <!--<article class="recom-music">
             <header class="music-head"><p>最新音乐</p><span></span></header>
             <section class="music-con">
                 <ul>
-                    <li v-for="(item,index) in newSong">
-                        <img :src="item.img" alt=""/>
-                        <p>{{item.text}}</p>
+                    <li v-for="(data,index) in newSong">
+                        <img :src="data.picImg" alt=""/>
+                        <p>{{data.name}}</p>
                     </li>
                 </ul>
             </section>
-        </article>
+        </article>-->
         <!--推荐MV-->
         <article class="recom-music">
             <header class="music-head"><p>推荐MV</p><span></span></header>
             <section class="music-mv">
                 <ul>
-                    <li v-for="(item,index) in mvList">
-                        <span>{{item.num}}</span>
-                        <img :src="item.img" alt=""/>
+                    <li v-for="(data,index) in mvList">
+                        <span>{{data.playCount}}</span>
+                        <img :src="data.picUrl" alt=""/>
                         <div>
-                            <p>{{item.title}}</p>
-                            <p style="color: #666666">{{item.name}}</p>
+                            <p>{{data.name}}</p>
+                            <!--<p style="color: #666666">{{data.name}}</p>-->
                         </div>
                     </li>
                 </ul>
             </section>
         </article>
         <!--精选专栏-->
-        <article class="recom-music">
+        <!--<article class="recom-music">
             <header class="music-head"><p>精选专栏</p><span></span></header>
             <section class="music-column">
                 <ul>
@@ -93,19 +93,19 @@
                     </li>
                 </ul>
             </section>
-        </article>
+        </article>-->
         <!--主播电台-->
         <article class="recom-music">
             <header class="music-head"><p>主播电台</p><span></span></header>
             <section class="music-radio">
                 <ul>
-                    <li v-for="(item,index) in songSheet">
+                    <li v-for="(data,index) in djProgram">
                         <div class="radio-img">
-                            <p class="img-text">123</p>
+                            <p class="img-text">{{data.playCount}}</p>
                             <span></span>
-                            <img :src="item.img" alt=""/>
+                            <img :src="data.picUrl" alt=""/>
                         </div>
-                        <p>{{item.text}}</p>
+                        <p>{{data.name}}</p>
                     </li>
                 </ul>
             </section>
@@ -120,56 +120,109 @@
 
 <script>
     import {Swiper, SwiperItem} from 'vux'
+    import api from '../../api/index';
     export default{
         components:{
             Swiper,SwiperItem
         },
         data(){
             return{
-                songSheet:[
-                    { num: '1200', img: require('../../assets/song-sheet.png'), text:'私は誰ですか' },
-                    { num: '20', img: require('../../assets/song-sheet.png'), text:'吟诗作对膜蛤起，谈笑风生又一年' },
-                    { num: '201', img: require('../../assets/song-sheet.png'), text:'膜蛤队长' },
-                    { num: '23333', img: require('../../assets/song-sheet.png'), text:'Too Young Too Native' },
-                    { num: '1', img: require('../../assets/song-sheet.png'), text:'苟利国家生死以，岂因祸福避趋之' },
-                    { num: '20万', img: require('../../assets/song-sheet.png'), text:'呱~呱~呱~呱~呱~呱~' }
-                ],
-                newSong:[
-                    { img: require('../../assets/song-sheet.png'), text:'私は誰ですか' },
-                    { img: require('../../assets/song-sheet.png'), text:'吟诗作对膜蛤起，谈笑风生又一年' },
-                    { img: require('../../assets/song-sheet.png'), text:'膜蛤队长' },
-                    { img: require('../../assets/song-sheet.png'), text:'Too Young Too Native' },
-                    { img: require('../../assets/song-sheet.png'), text:'苟利国家生死以，岂因祸福避趋之' },
-                    { img: require('../../assets/song-sheet.png'), text:'呱~呱~呱~呱~呱~呱~' }
-                ],
-                soleList:[
-                    { img: require('../../assets/img-sole.png'), text:'hhhh苟利国家生死以，岂因祸福避趋之,23333333' },
-                    { img: require('../../assets/img-sole.png'), text:'hhhh苟利国家生死以，岂因祸福避趋之,23333333' },
-                    { img: require('../../assets/img-sole.png'), text:'hhhh苟利国家生死以，岂因祸福避趋之,23333333' }
-                ],
-                mvList:[
-                    { num: '1200', img: require('../../assets/img-sole.png'), title:'5x10', name:'岚' },
-                    { num: '66万', img: require('../../assets/img-sole.png'), title:'光年之外', name:'邓紫棋' },
-                    { num: '41232', img: require('../../assets/img-sole.png'), title:'Supernova', name:'V6' },
-                    { num: '233', img: require('../../assets/img-sole.png'), title:'Everything', name:'Arashi' },
-                ],
-                columnList:[
-                    { num: '666', img: require('../../assets/img-sole.png'), text:'原谅大礼包是什么样的滋味，当然是原谅他拉' },
-                    { num: '2333', img: require('../../assets/img-sole.png'), text:'欢迎江泽蛤做客膜蛤大讲堂，将为我们带来膜蛤新姿势' },
-                    { num: '10487', img: require('../../assets/img-sole.png'), text:'年轻人不要怂，能多续就多续，+1s' },
-                ]
+                topBanner:[],   //轮播图
+                playlists:[],   //推荐歌单
+                soleList:[],    //独家放松
+                newSong:[],     //----------------最新歌曲 的picUrl 有问题
+                mvList:[],      //推荐MV
+                djProgram:[],   //主播电台
+                columnList:[]       //--------------------待定的精选专栏---------------------
             }
-        }
+        },
+        methods:{
+            //跳转到歌单详情
+            linkPlayList(id) {
+                this.$router.push({
+                    path: '/playLists/' + id
+                })
+            },
+
+            getTopBanner() {
+                api.getBanner().then((res)=>{
+                    this.topBanner = res.data.banners;
+                })
+                    .catch((res)=>{
+                        console.log(res)
+                    })
+            },
+            getPersonalizedResource() {
+                api.getPersonalized().then((response) => {
+                    this.playlists = response.data.result;
+//                    console.log(response.data.result[1].name);
+                })
+                    .catch((response) => {
+                        console.log(response);
+                    });
+            },
+            getPrivatecontentResource(){
+                api.getPrivatecontent().then((res)=>{
+                    this.soleList = res.data.result;
+                    console.log(111);
+                })
+                    .catch((res)=>{
+                        console.log(res)
+                    })
+            },
+            getPersonalizedMvResource(){
+                api.getPersonalizedMv().then((res) => {
+                    this.mvList = res.data.result;
+                })
+                    .catch((res) => {
+                        console.log(res)
+                    })
+            },
+//            getNewSongResource(){
+//                api.getPrivatecontent().then((res)=>{
+//                    this.newSong = res.data.result;
+//                    console.log(111);
+//                })
+//                    .catch((res)=>{
+//                        console.log(res)
+//                    })
+//            },
+//            getNew() {
+//                api.getNewSongs().then((res)=>{
+//                    this.newSong = res.data.result;
+//                })
+//                    .catch((res) =>{
+//                        console.log(res)
+//                    })
+//            },
+            getDjResource(){
+                api.getDj().then((res)=>{
+                    this.djProgram = res.data.result;
+                })
+                    .catch((res)=>{
+                        console.log(res)
+                    })
+            }
+        },
+        mounted () {
+            this.getPersonalizedResource();
+            this.getPrivatecontentResource();
+            this.getPersonalizedMvResource();
+//            this.getNewSongResource();
+//            this.getNew();
+            this.getDjResource();
+            this.getTopBanner();
+        },
     }
 </script>
 
 <style lang="less" rel="stylesheet/less">
     .page-recommend{
         .home-recom{
-            height: 7rem;
+            height: 7.2rem;
         }
         .black {
-            background-color: #000;
+            background-color: #ffffff;
         }
         .title{
             line-height: 7rem;
@@ -283,7 +336,6 @@
             }
         }
         .recom-music{
-            margin-bottom: .5rem;
             width: 100%;
             height: auto;
             .music-head{
@@ -545,15 +597,15 @@
                         content: '';
                         position: absolute;
                         display: block;
-                        width: 1rem;
-                        height: 1rem;
+                        width: .9rem;
+                        height: .9rem;
                         border: 1px solid #f0f0f0;
                         border-radius: 50%;
                         z-index: 99;
                         top: .2rem;
                         left: .4rem;
                         background: url("../../assets/icon-list.png") no-repeat;
-                        background-size: 80%;
+                        background-size: 75%;
                         background-position: .1rem;
                         /*transform: scale(.9);*/
                     }
@@ -562,7 +614,6 @@
                         width: 100%;
                         img{
                             width: 100%;
-                            height: 6.56rem;
                         }
                     }
                 }

@@ -32,7 +32,7 @@
             <section class="music-con">
                 <ul>
                     <li v-for="(data,index) in playlists">
-                        <span>{{data.playCount}}</span>
+                        <span class="playNum">{{data.playCount}}</span>
                         <img @click="linkPlayList(data.id)" :src="data.picUrl"/>
                         <p>{{data.name}}</p>
                     </li>
@@ -69,7 +69,7 @@
             <section class="music-mv">
                 <ul>
                     <li v-for="(data,index) in mvList">
-                        <span>{{data.playCount}}</span>
+                        <span class="playNum">{{data.playCount}}</span>
                         <img :src="data.picUrl" alt=""/>
                         <div>
                             <p>{{data.name}}</p>
@@ -127,6 +127,7 @@
         },
         data(){
             return{
+//                datas:[],
                 topBanner:[],   //轮播图
                 playlists:[],   //推荐歌单
                 soleList:[],    //独家放松
@@ -153,18 +154,17 @@
                     })
             },
             getPersonalizedResource() {
-                api.getPersonalized().then((response) => {
-                    this.playlists = response.data.result;
-//                    console.log(response.data.result[1].name);
+                api.getPersonalized().then((res) => {
+//                    this.datas = res.data.playlist;
+                    this.playlists = res.data.result;
                 })
-                    .catch((response) => {
-                        console.log(response);
+                    .catch((res) => {
+                        console.log(res);
                     });
             },
             getPrivatecontentResource(){
                 api.getPrivatecontent().then((res)=>{
                     this.soleList = res.data.result;
-                    console.log(111);
                 })
                     .catch((res)=>{
                         console.log(res)
@@ -202,6 +202,17 @@
                     .catch((res)=>{
                         console.log(res)
                     })
+            },
+            NumTransform(){
+                let count = document.getElementsByClassName('playNum');
+                let num = (this.datas.playCount).toString();
+                if(num.length >= 4){
+                    let num2 = num.slice(0,-4);
+                    for(let i=0;i<count.length;i++){
+                        count[i].innerHTML = num2 + '万';
+                        console.log(num);
+                    }
+                }
             }
         },
         mounted () {
@@ -213,6 +224,9 @@
             this.getDjResource();
             this.getTopBanner();
         },
+        updated(){
+//            console.log(this.datas.playCount);
+        }
     }
 </script>
 

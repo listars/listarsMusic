@@ -1,19 +1,66 @@
 <template>
     <div>
         <router-view></router-view>
-        <footer class="foot-play">
-            <img class="foot-img" src="./assets/song-sheet.png" alt=""/>
-            <div class="foot-song">
-                <p class="song-name">Dragon Night</p>
-                <p class="song-lyric">Today is</p>
-            </div>
-            <span class="foot-icon play">&#xe623;</span>
-            <span class="foot-icon">&#xe6b7;</span>
-        </footer>
+        <template>
+            <footer class="foot-play">
+                <audio :src="audio.location" id="lMusic" autoplay></audio>
+                <img @click="showSong" class="foot-img" :src="audio.pic" alt=""/>
+                <div @click="getMusicTime" class="foot-song">
+                    <p class="song-name">{{audio.name}}</p>
+                    <p class="song-lyric">{{audio.singer}}</p>
+                </div>
+                <span class="foot-icon play">&#xe623;</span>
+                <span class="foot-icon">&#xe6b7;</span>
+            </footer>
+        </template>
     </div>
 </template>
 
 <script>
+    import { mapMutations,mapGetters} from 'vuex'
+    export default{
+        data(){
+            return{
+                TimeSong:''
+            }
+        },
+        methods:{
+            getMusicTime(){
+                let lAudio = document.getElementById('lMusic');
+                let mTime = parseInt(lAudio.duration);
+                let cTime = parseInt(lAudio.currentTime);
+                let minute = Math.floor(mTime/60);
+                let min =Math.floor(cTime/60);
+                let second = mTime%60;
+                let sec = cTime%60;
+                let startT = min + ':' + sec;
+                let songTime = minute + ':' + second;
+                this.$store.commit('getSongTime',songTime);
+                this.$store.commit('getSongT',mTime);
+                this.$store.commit('getStartTime',startT);
+                console.log(startT);
+                console.log(songTime);
+                console.log(mTime);
+                songTime = this.TimeSong;
+            },
+            ...mapMutations([
+                'showSong',
+                'getSongTime',
+                'getStartTime'
+            ])
+        },
+        updated(){
+//            this.getMusicTime()
+        },
+        computed:{
+            ...mapGetters([
+                'audio',
+                'mTime',
+                'songTime',
+                'startT'
+            ])
+        }
+    }
 </script>
 
 <style lang="less" rel="stylesheet/less" >
@@ -47,13 +94,19 @@
                 font-size: .65rem;
                 transform: scale(.9);
                 margin-left: -5%;
+                width: 100%;
+                line-height: 1.2rem;
+                height: 1rem;
+                overflow: hidden;
             }
             .song-lyric{
                 font-size: .65rem;
                 transform: scale(.8);
                 color: #777777;
                 width: 100%;
-                margin-left: -9%;
+                margin-left: -10%;
+                height: 1rem;
+                overflow: hidden;
             }
         }
         .foot-icon{

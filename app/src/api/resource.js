@@ -11,6 +11,7 @@ const apiMusic = {
     // personalizedSong: '/personalized/newsong',    //------最新歌曲  接口有问题没图片
     personalizedDj: '/personalized/djprogram',   //推荐电台
     playListDetail: '/playlist/detail',     //歌单详情
+    musicUrl: '/music/url', // 获取音乐url
 };
 
 export const PersonalizedResource = API_ROOT.concat(apiMusic.personalized);
@@ -20,3 +21,4 @@ export const PersonalizedMvResource = API_ROOT.concat(apiMusic.personalizedMv);
 export const DJResource = API_ROOT.concat(apiMusic.personalizedDj);
 export const TopBanner = API_ROOT.concat(apiMusic.banner);
 export const ListDetail = API_ROOT.concat(apiMusic.playListDetail);
+export const MusicUrlResource = API_ROOT.concat(apiMusic.musicUrl);

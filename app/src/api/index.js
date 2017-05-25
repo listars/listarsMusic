@@ -9,10 +9,20 @@ import {
     // NewSongResource,
     DJResource,
     TopBanner,
-    ListDetail
+    ListDetail,
+    MusicUrlResource
 } from './resource';
 
 export default {
+
+    // 获取音乐url， id为单曲id
+    getMusicUrlResource (id) {
+        return axios.get(MusicUrlResource, {
+            params: {
+                id: id
+            }
+        });
+    },
 
     //获取歌单详情
     getPlaylistDetailResource (id) {

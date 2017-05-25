@@ -1,27 +1,32 @@
 <template>
     <article class="page-sheet">
         <section class="sheet-head">
-            <div class="head-top">
-                <a href="javascript:history.go(-1)" class="icon">&#xe602;</a>
-                <span class="top-text">歌单</span>
-                <span class="icon">&#xe672;</span>
-                <span class="icon">&#xe60f;</span>
+            <div style="overflow: hidden" class="head-back">
+                <img width="100%" :src="datas.picUrl" alt=""/>
             </div>
-            <div class="head-con">
-                <img :src="datas.picUrl" alt=""/>
-                <div class="con-user">
-                    <p class="sheet-name">{{datas.name}}</p>
-                    <div class="sheet-user">
-                        <img :src="creator.avatarUrl" alt=""/><span>{{creator.nickname}} ></span>
+            <div class="head-tic">
+                <div class="head-top">
+                    <a href="javascript:history.go(-1)" class="icon">&#xe602;</a>
+                    <span class="top-text">歌单</span>
+                    <span class="icon">&#xe672;</span>
+                    <span class="icon">&#xe60f;</span>
+                </div>
+                <div class="head-con">
+                    <img :src="datas.picUrl" alt=""/>
+                    <div class="con-user">
+                        <p class="sheet-name">{{datas.name}}</p>
+                        <div class="sheet-user">
+                            <img :src="creator.avatarUrl" alt=""/><span>{{creator.nickname}} ></span>
+                        </div>
                     </div>
                 </div>
+                <ul class="head-nav">
+                    <li><span class="nav-icon">&#xe696;</span><p id="playCount">{{datas.playCount}}</p></li>
+                    <li><span class="nav-icon">&#xe669;</span><p>{{datas.commentCount}}</p></li>
+                    <li><span class="nav-icon">&#xe64e;</span><p>{{datas.shareCount}}</p></li>
+                    <li><span class="nav-icon">&#xe61e;</span><p>下载</p></li>
+                </ul>
             </div>
-            <ul class="head-nav">
-                <li><span class="nav-icon">&#xe696;</span><p>{{datas.playCount}}</p></li>
-                <li><span class="nav-icon">&#xe669;</span><p>{{datas.commentCount}}</p></li>
-                <li><span class="nav-icon">&#xe64e;</span><p>{{datas.shareCount}}</p></li>
-                <li><span class="nav-icon">&#xe61e;</span><p>下载</p></li>
-            </ul>
         </section>
         <section class="sheet-con">
             <div class="con-head">
@@ -30,7 +35,7 @@
                 <i class="iconfont list">&#xe6b7;<span>多选</span></i>
             </div>
             <ul class="container">
-                <li v-for="(item,index) in songList">
+                <li @click="playAudio(item)" v-for="(item,index) in songList">
                     <span class="con-id">{{index+1}}</span>
                     <div class="con-song">
                         <p class="song-name">{{item.name}}</p>
@@ -40,22 +45,36 @@
                 </li>
             </ul>
         </section>
+        <div v-if="loadShow" class="song-loading">
+            <div class="loading-back"></div>
+            <div class="round"></div>
+            <p>Loading...</p>
+        </div>
+
+        <song v-if="songShow"></song>
     </article>
 </template>
 
 <script>
+    import { mapMutations,mapGetters } from 'vuex'
+    import Song from './song.vue'
     import api from '../../api';
     export default{
         components:{
+            Song
         },
         data(){
             return{
                 datas: {},
                 creator:{},
-                songList:[]
+                songList:[],
+                loadShow:true
             }
         },
         methods:{
+            ...mapMutations([
+                'showSong'
+            ]),
             getListDetail(){
                 api.getPlaylistDetailResource(this.$route.params.id).then(res => {
                     this.datas = res.data.playlist;
@@ -65,15 +84,42 @@
                     console.log(res);
                 })
             },
-            playListImage() {
-                return '' || (this.datas.picUrl);
+            playAudio(song){
+                let audio = {};
+                audio.id = song.id;
+                audio.name = song.name;
+                audio.singer = song.al.name;
+                audio.pic = song.al.picUrl;
+                // 通过Vuex改变状态
+                this.$store.commit('addToList', audio);
+                this.$store.dispatch('getSong', audio.id);
+//                console.log(audio);
+//                console.log((this.datas.playCount).toString().length);
             },
-            creatorImage() {
-                return '' || this.creator.avatarUrl;
+            NumTransform(){
+                this.loadShow = false;
+                let count = document.getElementById('playCount');
+                let num = (this.datas.playCount).toString();
+                if(num.length >= 4){
+                    let num2 = num.slice(0,-4);
+                    count.innerHTML = num2 + '万';
+//                    console.log(num);
+                }
             }
         },
         mounted(){
             this.getListDetail();
+        },
+        updated(){
+//            console.log('111');
+            this.NumTransform();
+        },
+        computed: {
+            ...mapGetters([
+                'audio',
+                'songShow',
+                'timeSong'
+            ])
         }
     }
 </script>
@@ -81,12 +127,64 @@
 <style lang="less" rel="stylesheet/less">
     @import '../../assets/css/common.css';
     .page-sheet{
-
         background: rgb(248,248,248);
+        .song-loading{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            z-index: 999;
+            .loading-back{
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background: url("../../assets/song-sheet.png");
+                filter: blur(5px);
+            }
+            .round{
+                position: fixed;
+                top: 10rem;
+                left: 38%;
+                width: 5rem;
+                height: 5rem;
+                border-radius: 50%;
+                border: .15rem solid red;
+                border-left: .15rem solid transparent;
+                animation: outRound 1s infinite linear;
+                z-index: 10;
+            }
+            p{
+                color: darkred;
+                position: fixed;
+                top: 11.7rem;
+                font-size: .85rem;
+                left: 41%;
+                z-index: 10;
+            }
+            @keyframes outRound {
+                0%{ transform: rotate(130deg) }
+                100%{ transform: rotate(-230deg) }
+            }
+        }
         .sheet-head{
             width: 100%;
-            height: auto;
-            background: rgba(0,0,0,0.5);
+            height: 12.3rem;
+            position: relative;
+            background: rgba(0,0,0,0.4);
+            .head-back{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                filter: blur(5px);
+                z-index: 1;
+            }
+            .head-tic{
+                position: absolute;
+                width: 100%;
+                z-index: 99;
+                background: rgba(0,0,0,0.4);
+            }
             .head-top{
                 width: 100%;
                 height: 2.5rem;
@@ -246,6 +344,7 @@
                         vertical-align: top;
                         text-indent: .1rem;
                         height: 2.5rem;
+                        overflow: hidden;
                         width: 88%;
                         position: relative;
                         border-bottom: 1px solid rgb(230,230,230);
@@ -254,6 +353,7 @@
                             font-size: .65rem;
                             height: 1.5rem;
                             line-height: 1.5rem;
+                            overflow: hidden;
                         }
                         .singer{
                             font-size: .65rem;

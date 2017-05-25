@@ -12,6 +12,8 @@ const apiMusic = {
     personalizedDj: '/personalized/djprogram',   //推荐电台
     playListDetail: '/playlist/detail',     //歌单详情
     musicUrl: '/music/url', // 获取音乐url
+    highquality: '/top/playlist/highquality',    //精品歌单
+    hotPlayList: '/top/playlist'    //最热歌单
 };
 
 export const PersonalizedResource = API_ROOT.concat(apiMusic.personalized);
@@ -22,3 +24,5 @@ export const DJResource = API_ROOT.concat(apiMusic.personalizedDj);
 export const TopBanner = API_ROOT.concat(apiMusic.banner);
 export const ListDetail = API_ROOT.concat(apiMusic.playListDetail);
 export const MusicUrlResource = API_ROOT.concat(apiMusic.musicUrl);
+export const HighQualityResource = API_ROOT.concat(apiMusic.highquality);
+export const HotPlayListResource = API_ROOT.concat(apiMusic.hotPlayList);

@@ -1,11 +1,11 @@
 <template>
     <div>
         <router-view></router-view>
-        <template>
+        <template v-if="footShow">
             <footer class="foot-play">
                 <audio :src="audio.location" id="lMusic" autoplay></audio>
                 <img @click="showSong" class="foot-img" :src="audio.pic" alt=""/>
-                <div @click="getMusicTime" class="foot-song">
+                <div class="foot-song">
                     <p class="song-name">{{audio.name}}</p>
                     <p class="song-lyric">{{audio.singer}}</p>
                 </div>
@@ -21,32 +21,33 @@
     export default{
         data(){
             return{
-                TimeSong:''
+                footShow:false
+//                TimeSong:''
             }
         },
         methods:{
-            getMusicTime(){
-                let lAudio = document.getElementById('lMusic');
-                let mTime = parseInt(lAudio.duration);
-                let cTime = parseInt(lAudio.currentTime);
-                let minute = Math.floor(mTime/60);
-                let min =Math.floor(cTime/60);
-                let second = mTime%60;
-                let sec = cTime%60;
-                let startT = min + ':' + sec;
-                let songTime = minute + ':' + second;
-                this.$store.commit('getSongTime',songTime);
-                this.$store.commit('getSongT',mTime);
-                this.$store.commit('getStartTime',startT);
-                console.log(startT);
-                console.log(songTime);
-                console.log(mTime);
-                songTime = this.TimeSong;
-            },
+//            getMusicTime(){
+//                let lAudio = document.getElementById('lMusic');
+//                let mTime = parseInt(lAudio.duration);
+//                let cTime = parseInt(lAudio.currentTime);
+//                let minute = Math.floor(mTime/60);
+//                let min =Math.floor(cTime/60);
+//                let second = mTime%60;
+//                let sec = cTime%60;
+//                let startT = min + ':' + sec;
+//                let songTime = minute + ':' + second;
+//                this.$store.commit('getSongTime',songTime);
+//                this.$store.commit('getSongT',mTime);
+//                this.$store.commit('getStartTime',startT);
+//                console.log(startT);
+//                console.log(songTime);
+//                console.log(mTime);
+//                songTime = this.TimeSong;
+//            },
             ...mapMutations([
                 'showSong',
-                'getSongTime',
-                'getStartTime'
+//                'getSongTime',
+//                'getStartTime'
             ])
         },
         updated(){
@@ -55,9 +56,9 @@
         computed:{
             ...mapGetters([
                 'audio',
-                'mTime',
-                'songTime',
-                'startT'
+//                'mTime',
+//                'songTime',
+//                'startT'
             ])
         }
     }

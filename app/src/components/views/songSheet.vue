@@ -73,7 +73,9 @@
         },
         methods:{
             ...mapMutations([
-                'showSong'
+                'showSong',
+                'getSongTime',
+                'getStartTime'
             ]),
             getListDetail(){
                 api.getPlaylistDetailResource(this.$route.params.id).then(res => {
@@ -93,8 +95,24 @@
                 // 通过Vuex改变状态
                 this.$store.commit('addToList', audio);
                 this.$store.dispatch('getSong', audio.id);
-//                console.log(audio);
-//                console.log((this.datas.playCount).toString().length);
+
+                //获取歌曲的时长还有已播放的时长
+                let lAudio = document.getElementById('lMusic');
+                let mTime = parseInt(lAudio.duration);
+                let cTime = parseInt(lAudio.currentTime);
+                let minute = Math.floor(mTime/60);
+                let min =Math.floor(cTime/60);
+                let second = mTime%60;
+                let sec = cTime%60;
+                let startT = min + ':' + sec;
+                let songTime = minute + ':' + second;
+                this.$store.commit('getSongTime',songTime);
+                this.$store.commit('getSongT',mTime);
+                this.$store.commit('getStartTime',startT);
+                console.log(startT);
+                console.log(songTime);
+                console.log(mTime);
+                songTime = this.TimeSong;
             },
             NumTransform(){
                 this.loadShow = false;
@@ -118,7 +136,10 @@
             ...mapGetters([
                 'audio',
                 'songShow',
-                'timeSong'
+                'timeSong',
+                'mTime',
+                'songTime',
+                'startT'
             ])
         }
     }

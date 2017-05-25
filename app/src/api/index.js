@@ -10,10 +10,31 @@ import {
     DJResource,
     TopBanner,
     ListDetail,
-    MusicUrlResource
+    MusicUrlResource,
+    HighQualityResource,
+    HotPlayListResource
 } from './resource';
 
 export default {
+    //获取最热歌单, limit为显示的数量， order为hot
+    getHotPlayList(limit,order){
+        return axios.get(HotPlayListResource,{
+            params:{
+                limit: limit || 20,
+                order: order || 'hot'
+            }
+        })
+    },
+
+    //获取精品歌单, limit为显示的数量， offset为分页
+    getHighQuality(limit,offset){
+        return axios.get(HighQualityResource, {
+            params: {
+                limit: limit || 20,
+                offset: offset || 0
+            }
+        })
+    },
 
     // 获取音乐url， id为单曲id
     getMusicUrlResource (id) {

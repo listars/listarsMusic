@@ -10,7 +10,9 @@
             <section v-if="navNum==0">
                 <recommend></recommend>
             </section>
-            <section v-if="navNum==1">666</section>
+            <section v-if="navNum==1">
+                <playlist></playlist>
+            </section>
             <section v-if="navNum==2">3</section>
             <section v-if="navNum==3">4</section>
         </article>
@@ -20,9 +22,10 @@
 <script>
     import MHead from './views/head.vue'
     import Recommend from './views/recommend.vue'
+    import Playlist from './views/playlist.vue'
     export default {
         components:{
-            MHead,Recommend
+            MHead,Recommend,Playlist
         },
         data(){
             return{

@@ -5,7 +5,9 @@
             <div class="phead-con">
                 <img :src="playsheet[0].coverImgUrl"/>
                 <div class="hcon-text">
-                    <p class="text-tit"><span class="vip-icon">&#xe6b8;</span>精品歌单 ></p>
+                    <router-link to="fineSong">
+                        <p class="text-tit"><span class="vip-icon">&#xe6b8;</span>精品歌单 ></p>
+                    </router-link>
                     <p class="text-name">{{playsheet[0].name}}</p>
                     <p class="text-con">{{playsheet[0].copywriter}}</p>
                 </div>

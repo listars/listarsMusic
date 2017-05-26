@@ -12,10 +12,37 @@ import {
     ListDetail,
     MusicUrlResource,
     HighQualityResource,
-    HotPlayListResource
+    HotPlayListResource,
+    RankResource,
+    AnchorResource,
+    SingerResource
 } from './resource';
 
 export default {
+    //获取热门歌手    参数同下
+    getSingerList(limit,offset){
+        return axios.get(SingerResource,{
+            params:{
+                limit: limit || 30,
+                offset: offset || 0
+            }
+        })
+    },
+
+    //获取推荐节目
+    getAnchorList(){
+        return axios.get(AnchorResource);
+    },
+
+    //获取排行榜
+    getRankList(idx){
+        return axios.get(RankResource,{
+            params:{
+                idx: idx
+            }
+        })
+    },
+
     //获取最热歌单, limit为显示的数量， order为hot
     getHotPlayList(limit,order){
         return axios.get(HotPlayListResource,{

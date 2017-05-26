@@ -13,7 +13,10 @@ const apiMusic = {
     playListDetail: '/playlist/detail',     //歌单详情
     musicUrl: '/music/url', // 获取音乐url
     highquality: '/top/playlist/highquality',    //精品歌单
-    hotPlayList: '/top/playlist'    //最热歌单
+    hotPlayList: '/top/playlist',    //最热歌单
+    rankList: '/top/list',  //排行榜
+    anchorList: '/program/recommend',   //节目
+    singerList: '/top/artists',     //热门歌手
 };
 
 export const PersonalizedResource = API_ROOT.concat(apiMusic.personalized);
@@ -26,3 +29,6 @@ export const ListDetail = API_ROOT.concat(apiMusic.playListDetail);
 export const MusicUrlResource = API_ROOT.concat(apiMusic.musicUrl);
 export const HighQualityResource = API_ROOT.concat(apiMusic.highquality);
 export const HotPlayListResource = API_ROOT.concat(apiMusic.hotPlayList);
+export const RankResource = API_ROOT.concat(apiMusic.rankList);
+export const AnchorResource = API_ROOT.concat(apiMusic.anchorList);
+export const SingerResource = API_ROOT.concat(apiMusic.singerList);

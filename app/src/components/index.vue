@@ -13,8 +13,12 @@
             <section v-if="navNum==1">
                 <playlist></playlist>
             </section>
-            <section v-if="navNum==2">3</section>
-            <section v-if="navNum==3">4</section>
+            <section v-if="navNum==2">
+                <anchor></anchor>
+            </section>
+            <section v-if="navNum==3">
+                <rank></rank>
+            </section>
         </article>
     </div>
 </template>
@@ -23,9 +27,11 @@
     import MHead from './views/head.vue'
     import Recommend from './views/recommend.vue'
     import Playlist from './views/playlist.vue'
+    import Rank from './views/rank.vue'
+    import Anchor from './views/anchor.vue'
     export default {
         components:{
-            MHead,Recommend,Playlist
+            MHead,Recommend,Playlist,Rank,Anchor
         },
         data(){
             return{
@@ -39,7 +45,7 @@
                         name: '歌单'
                     },
                     {
-                        name: '主播电台'
+                        name: '歌手节目'
                     },
                     {
                         name: '排行榜'

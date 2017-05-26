@@ -17,6 +17,8 @@ const apiMusic = {
     rankList: '/top/list',  //排行榜
     anchorList: '/program/recommend',   //节目
     singerList: '/top/artists',     //热门歌手
+    search: '/search',   //搜索
+    suggest: '/search/suggest', //搜索建议
 };
 
 export const PersonalizedResource = API_ROOT.concat(apiMusic.personalized);
@@ -32,3 +34,5 @@ export const HotPlayListResource = API_ROOT.concat(apiMusic.hotPlayList);
 export const RankResource = API_ROOT.concat(apiMusic.rankList);
 export const AnchorResource = API_ROOT.concat(apiMusic.anchorList);
 export const SingerResource = API_ROOT.concat(apiMusic.singerList);
+export const SearhResource = API_ROOT.concat(apiMusic.search);
+export const SuggestResource = API_ROOT.concat(apiMusic.suggest);

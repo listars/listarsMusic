@@ -230,6 +230,7 @@
                 }
                 ul{
                     display: inline-block;
+                    width: 65%;
                     font-size: .65rem;
                     list-style: none;
                     padding: .7rem .5rem;

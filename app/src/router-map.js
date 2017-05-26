@@ -7,6 +7,7 @@ import Sheet from './components/views/songSheet.vue'
 import Song from './components/views/song.vue'
 import FineSong from './components/views/fineSong.vue'
 import Billboard from './components/views/billboard.vue'
+import Search from './components/views/search.vue'
 
  const routes = [
     {
@@ -32,6 +33,10 @@ import Billboard from './components/views/billboard.vue'
      {
          path: '/billboard',
          component: Billboard
+     },
+     {
+         path: '/search',
+         component: Search
      }
 
 ]

@@ -6,13 +6,22 @@
                 <li class="music"></li>
                 <li class="logo"></li>
                 <li class="user"></li>
-                <li class="search"></li>
+                <li @click="jumpSearch" class="search"></li>
             </ul>
         </header>
     </div>
 </template>
 
 <script>
+    export default{
+        methods:{
+            jumpSearch(){
+                this.$router.push({
+                    path: '/search'
+                })
+            }
+        }
+    }
 </script>
 
 <style lang="less" rel="stylesheet/less">

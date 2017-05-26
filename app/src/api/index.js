@@ -15,10 +15,35 @@ import {
     HotPlayListResource,
     RankResource,
     AnchorResource,
-    SingerResource
+    SingerResource,
+    SearhResource,
+    SuggestResource
 } from './resource';
 
 export default {
+    getSuggest(keywords,limit,offset,type){
+        return axios.get(SuggestResource,{
+            params:{
+                keywords: keywords,
+                limit: limit,
+                offset: offset,
+                type: type,
+            }
+        })
+    },
+
+    //搜索 keywords--关键词 , limit--返回数量 , type--搜索类型 , offset--偏移数量，用于分页
+    getSearch(keywords,limit,offset,type){
+        return axios.get(SearhResource,{
+            params:{
+                keywords: keywords,
+                limit: limit,
+                offset: offset,
+                type: type,
+            }
+        })
+    },
+
     //获取热门歌手    参数同下
     getSingerList(limit,offset){
         return axios.get(SingerResource,{

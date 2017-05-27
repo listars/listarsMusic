@@ -40,6 +40,11 @@ const store = new Vuex.Store({
             'location': '',
             'album': '',
         },
+        users:{
+            'nickname': '用户名称',
+            'avatarUrl': '/static/player-bar.png',
+            'backgroundUrl': '/static/player-bar.png',
+        },
         songTime:'0:00',    //歌曲时间
         mTime:0,    //歌曲时间没转化版
         songShow:false, //歌曲详情页面
@@ -49,6 +54,7 @@ const store = new Vuex.Store({
         startT:'0:0'
     },
     getters: {
+        users: state => state.users,
         songTime: state => state.songTime,
         songShow: state => state.songShow,
         audio: state => state.audio,
@@ -59,6 +65,9 @@ const store = new Vuex.Store({
         startT: state => state.startT
     },
     mutations: {
+        getUsers(state,users) {
+            state.users = users;
+        },
         showSong (state) {
             state.songShow = true;
         },

@@ -17,10 +17,22 @@ import {
     AnchorResource,
     SingerResource,
     SearhResource,
-    SuggestResource
+    SuggestResource,
+    LoginResource
 } from './resource';
 
 export default {
+    //登录
+    getLogin(phone,password){
+        return axios.get(LoginResource,{
+            params:{
+                phone: phone,
+                password: password
+            }
+        })
+    },
+
+    //---------------------------不是我想要的那个搜索建议，不做这个------------------
     getSuggest(keywords,limit,offset,type){
         return axios.get(SuggestResource,{
             params:{

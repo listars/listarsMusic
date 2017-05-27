@@ -19,6 +19,7 @@ const apiMusic = {
     singerList: '/top/artists',     //热门歌手
     search: '/search',   //搜索
     suggest: '/search/suggest', //搜索建议
+    login: '/login/cellphone'
 };
 
 export const PersonalizedResource = API_ROOT.concat(apiMusic.personalized);
@@ -36,3 +37,4 @@ export const AnchorResource = API_ROOT.concat(apiMusic.anchorList);
 export const SingerResource = API_ROOT.concat(apiMusic.singerList);
 export const SearhResource = API_ROOT.concat(apiMusic.search);
 export const SuggestResource = API_ROOT.concat(apiMusic.suggest);
+export const LoginResource = API_ROOT.concat(apiMusic.login);

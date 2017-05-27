@@ -21,7 +21,7 @@
     export default{
         data(){
             return{
-                footShow:false
+                footShow:true
 //                TimeSong:''
             }
         },

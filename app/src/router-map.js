@@ -8,6 +8,7 @@ import Song from './components/views/song.vue'
 import FineSong from './components/views/fineSong.vue'
 import Billboard from './components/views/billboard.vue'
 import Search from './components/views/search.vue'
+import Login from './components/views/login.vue'
 
  const routes = [
     {
@@ -37,6 +38,10 @@ import Search from './components/views/search.vue'
      {
          path: '/search',
          component: Search
+     },
+     {
+         path: '/login',
+         component: Login
      }
 
 ]

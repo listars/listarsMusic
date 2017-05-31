@@ -18,10 +18,20 @@ import {
     SingerResource,
     SearhResource,
     SuggestResource,
-    LoginResource
+    LoginResource,
+    UserPlaylistResource
 } from './resource';
 
 export default {
+    //获取用户歌单
+    getUserPlaylist(uid){
+        return axios.get(UserPlaylistResource,{
+            params:{
+                uid: uid
+            }
+        })
+    },
+
     //登录
     getLogin(phone,password){
         return axios.get(LoginResource,{

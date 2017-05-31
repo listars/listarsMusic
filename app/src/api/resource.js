@@ -19,7 +19,8 @@ const apiMusic = {
     singerList: '/top/artists',     //热门歌手
     search: '/search',   //搜索
     suggest: '/search/suggest', //搜索建议
-    login: '/login/cellphone'
+    login: '/login/cellphone',  //登录接口
+    userPlaylist: '/user/playlist', //用户歌单
 };
 
 export const PersonalizedResource = API_ROOT.concat(apiMusic.personalized);
@@ -38,3 +39,4 @@ export const SingerResource = API_ROOT.concat(apiMusic.singerList);
 export const SearhResource = API_ROOT.concat(apiMusic.search);
 export const SuggestResource = API_ROOT.concat(apiMusic.suggest);
 export const LoginResource = API_ROOT.concat(apiMusic.login);
+export const UserPlaylistResource = API_ROOT.concat(apiMusic.userPlaylist);

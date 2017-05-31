@@ -20,6 +20,7 @@
                 password:'',
                 username:'',
                 userImg:'',
+//                users:{}
             }
         },
         methods:{
@@ -33,9 +34,11 @@
             },
             getLoginResource(){
                 api.getLogin(this.phone,this.password).then(res=>{
+//                    this.users = res.data.account;
                     this.username = res.data.profile;
                     window.sessionStorage.setItem('username',this.username.nickname);
                     window.sessionStorage.setItem('userImg',this.username.avatarUrl);
+                    window.sessionStorage.setItem('uid',this.username.userId);
                 })
             },
             login(phone,password,username){

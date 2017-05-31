@@ -203,15 +203,15 @@
                         console.log(res)
                     })
             },
-            NumTransform(){
+            NumTransform(i){
                 let count = document.getElementsByClassName('playNum');
-                let num = (this.datas.playCount).toString();
+                let num = (this.datas[i].playCount).toString();
                 if(num.length >= 4){
                     let num2 = num.slice(0,-4);
-                    for(let i=0;i<count.length;i++){
+//                    for(let i=0;i<count.length;i++){
                         count[i].innerHTML = num2 + '万';
                         console.log(num);
-                    }
+//                    }
                 }
             }
         },

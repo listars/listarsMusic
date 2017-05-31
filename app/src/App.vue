@@ -10,8 +10,16 @@
                     <p class="song-lyric">{{audio.singer}}</p>
                 </div>
                 <span class="foot-icon play">&#xe623;</span>
-                <span class="foot-icon">&#xe6b7;</span>
+                <span @click="listShow=!listShow" class="foot-icon">&#xe6b7;</span>
             </footer>
+            <transition name="songlist">
+                <div @click="listShow=!listShow" v-if="listShow" class="song-list">
+                    <ul @click.stop>
+                        <p>播放列表</p>
+                        <li>1</li>
+                    </ul>
+                </div>
+            </transition>
         </template>
     </div>
 </template>
@@ -21,7 +29,8 @@
     export default{
         data(){
             return{
-                footShow:true
+                footShow:true,
+                listShow:false
 //                TimeSong:''
             }
         },
@@ -69,6 +78,44 @@
     @import './assets/css/common.css';
     body {
         background-color: rgb(248,248,248);
+    }
+    .songlist-enter-active, .songlist-leave-active {
+         transition: all .3s ease;
+     }
+    .songlist-enter, .songlist-leave-active {
+        transform: translateY(-1rem);
+        opacity: 0;
+    }
+    .song-list{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        top: 0;
+        background: rgba(0,0,0,0.4);
+        ul{
+            position: absolute;
+            bottom: 2.5rem;
+            width: 100%;
+            height: auto;
+            background: #ffffff;
+            p{
+                width: 100%;
+                text-align: center;
+                height: 2.5rem;
+                line-height: 2.5rem;
+                font-size: .75rem;
+                border-bottom: 1px solid rgb(240,240,240);
+            }
+            li{
+                width: 95%;
+                margin: 0 auto;
+                height: 2.5rem;
+                line-height: 2.5rem;
+                font-size: .75rem;
+                border-bottom: 1px solid rgb(240,240,240);
+            }
+        }
     }
     .foot-play{
         z-index: 100;

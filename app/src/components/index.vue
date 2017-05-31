@@ -3,8 +3,8 @@
         <header class="home-head">
             <ul>
                 <li @click="sideShow=!sideShow" class="list"></li>
-                <li class="music"></li>
-                <li class="logo"></li>
+                <li @click="musicIndex = 0" class="music"></li>
+                <li @click="musicIndex = 1" class="logo"></li>
                 <li class="user"></li>
                 <li @click="jumpSearch" class="search"></li>
             </ul>
@@ -13,7 +13,7 @@
             <div v-if="sideShow" class="home-side">
                 <div class="side-con">
                     <div class="side-head">
-                        <template v-if="userName == ''">
+                        <template v-if="userName != ''">
                             <div class="back">
                                 <i class="side-icon" @click="sideShow=!sideShow">&#xe602;</i>
                                 <img :src="userImg"/>
@@ -27,12 +27,15 @@
                 </div>
             </div>
         </transition>
-        <nav class="home-nav">
-            <span :class="{active:navNum == index}"
-                  @click="navNum = index"
-                  v-for="(item,index) in navList">{{item.name}}</span>
-        </nav>
-        <article class="home-con">
+        <article v-if="musicIndex == 0">
+            <userPlaylist></userPlaylist>
+        </article>
+        <article v-if="musicIndex == 1" class="home-con">
+            <nav class="home-nav">
+                <span :class="{active:navNum == index}"
+                      @click="navNum = index"
+                      v-for="(item,index) in navList">{{item.name}}</span>
+            </nav>
             <section v-if="navNum==0">
                 <recommend></recommend>
             </section>
@@ -51,6 +54,7 @@
 
 <script>
     import { mapGetters,mapMutations } from 'vuex'
+    import UserPlaylist from './views/userPlaylist.vue'
     import MHead from './views/head.vue'
     import Recommend from './views/recommend.vue'
     import Playlist from './views/playlist.vue'
@@ -58,12 +62,13 @@
     import Anchor from './views/anchor.vue'
     export default {
         components:{
-            MHead,Recommend,Playlist,Rank,Anchor
+            MHead,Recommend,Playlist,Rank,Anchor,UserPlaylist
         },
         data(){
             return{
                 navNum: 0,
                 index: 1,
+                musicIndex: 1,
                 userName: '',
                 userImg:'',
                 sideShow:false,
@@ -87,6 +92,12 @@
 //            userShow(){
 //
 //            },
+            jumpUserPlaylist(){
+                this.$router.push({
+                    path: '/'
+                })
+            }
+            ,
             jumpSearch(){
                 this.$router.push({
                     path: '/search'

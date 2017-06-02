@@ -27,7 +27,7 @@
                 </div>
             </div>
         </transition>
-        <article v-if="musicIndex == 0">
+        <article v-if="musicIndex == 0" class="home-con">
             <userPlaylist></userPlaylist>
         </article>
         <article v-if="musicIndex == 1" class="home-con">
@@ -139,7 +139,7 @@
         .home-side{
             position: fixed;
             z-index: 999;
-            margin-top: -2.5rem;
+            top: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;

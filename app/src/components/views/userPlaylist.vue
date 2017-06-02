@@ -1,11 +1,14 @@
 <template>
     <div class="page-userPlaylist">
         <div class="user-top">
-            <p class="history"><span class="history-icon">&#xe637;</span>本地音乐</p>
-            <p class="history"><span class="history-icon">&#xe637;</span>最近播放</p>
-            <p class="history"><span class="history-icon">&#xe637;</span>下载管理</p>
-            <p class="history"><span class="history-icon">&#xe637;</span>我的电台</p>
-            <p class="history"><span class="history-icon">&#xe637;</span>我的收藏</p>
+            <p class="history"><span class="history-icon">&#xe64f;</span>本地音乐</p>
+            <p class="history">
+                <span class="history-icon">&#xe637;</span>最近播放
+                <span class="history-num">({{recordlist.length}})</span>
+            </p>
+            <p class="history"><span class="history-icon">&#xe61e;</span>下载管理</p>
+            <p class="history"><span class="history-icon">&#xe706;</span>我的电台</p>
+            <p class="history"><span class="history-icon">&#xe6e8;</span>我的收藏</p>
         </div>
         <header @click="playlistShow = !playlistShow"
                 class="music-head"><p>我的歌单</p><span class="right">&#xe65b;</span></header>
@@ -30,6 +33,7 @@
             return{
                 uid:'',
                 playlist:[],
+                recordlist:[],
                 playlistShow: true
             }
         },
@@ -38,18 +42,27 @@
                 this.uid = window.sessionStorage.getItem('uid');
                 api.getUserPlaylist(this.uid).then(res=>{
                     this.playlist = res.data.playlist;
-                }),res=>{
+                },res=>{
                     console.log(res);
-                }
+                })
             },
             jumpPlaylist(id){
                 this.$router.push({
                     path: '/playlists/' + id
                 })
+            },
+            getRecordResource(){
+                this.uid = window.sessionStorage.getItem('uid');
+                api.getRecordList(this.uid,1).then(res=>{
+                    this.recordlist = res.data.weekData;
+                },res=>{
+                    console.log(res);
+                })
             }
         },
         mounted(){
-            this.getUserPlaylistResource()
+            this.getUserPlaylistResource();
+            this.getRecordResource()
         }
     }
 </script>
@@ -82,6 +95,10 @@
                     display: inline-block;
                     vertical-align: top;
                     margin-right: .5rem;
+                }
+                .history-num{
+                    font-size: .65rem;
+                    color: #999999;
                 }
             }
         }

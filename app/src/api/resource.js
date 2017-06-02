@@ -21,6 +21,7 @@ const apiMusic = {
     suggest: '/search/suggest', //搜索建议
     login: '/login/cellphone',  //登录接口
     userPlaylist: '/user/playlist', //用户歌单
+    recordList: '/user/record',  //播放记录
 };
 
 export const PersonalizedResource = API_ROOT.concat(apiMusic.personalized);
@@ -40,3 +41,4 @@ export const SearhResource = API_ROOT.concat(apiMusic.search);
 export const SuggestResource = API_ROOT.concat(apiMusic.suggest);
 export const LoginResource = API_ROOT.concat(apiMusic.login);
 export const UserPlaylistResource = API_ROOT.concat(apiMusic.userPlaylist);
+export const RecordResource = API_ROOT.concat(apiMusic.recordList);

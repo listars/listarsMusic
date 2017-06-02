@@ -19,10 +19,21 @@ import {
     SearhResource,
     SuggestResource,
     LoginResource,
-    UserPlaylistResource
+    UserPlaylistResource,
+    RecordResource
 } from './resource';
 
 export default {
+    //获取播放记录
+    getRecordList(uid,type){
+        return axios.get(RecordResource,{
+            params:{
+                uid:uid,
+                type:type
+            }
+        })
+    },
+
     //获取用户歌单
     getUserPlaylist(uid){
         return axios.get(UserPlaylistResource,{

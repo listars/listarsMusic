@@ -29,7 +29,7 @@
     export default{
         data(){
             return{
-                footShow:true,
+                footShow:false,
                 listShow:false
 //                TimeSong:''
             }
